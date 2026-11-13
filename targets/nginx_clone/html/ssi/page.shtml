@@ -1,0 +1,1 @@
+<p>head</p><!--#set var="x" value="ABCDEFGHIJKLMNO"--><!--#echo var="x"--><p>tail</p>

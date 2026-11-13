@@ -1,0 +1,1388 @@
+{
+  "benchmark": "snx - independent nginx-inspired web server",
+  "generated": "2026-11-12",
+  "count": 68,
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2026-15176",
+      "title": "Buffer overflow when using alias with rewrite",
+      "cvss": 8.1,
+      "cvss_severity": "HIGH",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-122"
+      ],
+      "bug_class": "heap buffer overflow",
+      "file": "src/snx_http.c",
+      "function": "snx_http_map_path",
+      "line_hint": 800,
+      "trigger": "alias path buffer sized from pre-rewrite unparsed remainder; copy uses post-rewrite remainder",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2026-93479",
+      "title": "Buffer overflow in script evaluation",
+      "cvss": 8.1,
+      "cvss_severity": "HIGH",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-122"
+      ],
+      "bug_class": "buffer overflow",
+      "file": "src/snx_script.c",
+      "function": "snx_complex_eval",
+      "line_hint": 157,
+      "trigger": "template expansion writes into caller buffer with no capacity parameter",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2026-95101",
+      "title": "Request body injection in HTTP/3",
+      "cvss": 5.3,
+      "cvss_severity": "MEDIUM",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-172"
+      ],
+      "bug_class": "body injection",
+      "file": "src/proto/snx_h3.c",
+      "function": "snx_h3_request",
+      "line_hint": 144,
+      "trigger": "DATA frame payloads forwarded to request layer verbatim without accounting",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2026-97629",
+      "title": "Session forgery when using TLS session tickets",
+      "cvss": 6.5,
+      "cvss_severity": "MEDIUM",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-908"
+      ],
+      "bug_class": "session ticket forgery",
+      "file": "src/snx_tls.c",
+      "function": "snx_tls_ticket_key",
+      "line_hint": 24,
+      "trigger": "ticket key/iv derived from static material; forgeable tickets",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2026-97205",
+      "title": "Use-after-free when using asynchronous file I/O (AIO)",
+      "cvss": 8.1,
+      "cvss_severity": "HIGH",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-416"
+      ],
+      "bug_class": "use-after-free",
+      "file": "src/mod/snx_mod_aio.c",
+      "function": "snx_mod_aio_sendfile",
+      "line_hint": 17,
+      "trigger": "aio job page freed while output iobuf still references it",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2026-90439",
+      "title": "Buffer overflow when using ngx_http_v3_module",
+      "cvss": 6.5,
+      "cvss_severity": "MEDIUM",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-122"
+      ],
+      "bug_class": "buffer overflow",
+      "file": "src/proto/snx_h3.c",
+      "function": "snx_quic_packet",
+      "line_hint": 171,
+      "trigger": "connection-id memcpy writes up to 31 bytes into 20-byte dcid/scid fields",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2026-42533",
+      "title": "Buffer overflow when using map and regex",
+      "cvss": 8.1,
+      "cvss_severity": "HIGH",
+      "nginx_severity": "major",
+      "cwe": [
+        "CWE-122"
+      ],
+      "bug_class": "heap buffer overflow",
+      "file": "src/mod/snx_mod_map.c",
+      "function": "snx_mod_map_vars",
+      "line_hint": 25,
+      "trigger": "matched map value expanded into res.n+1 buffer; $var refs expand past it",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2026-60005",
+      "title": "Memory disclosure when using ngx_http_slice_module",
+      "cvss": 8.2,
+      "cvss_severity": "HIGH",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-908"
+      ],
+      "bug_class": "memory disclosure",
+      "file": "src/mod/snx_mod_slice.c",
+      "function": "snx_f_slice_body",
+      "line_hint": 57,
+      "trigger": "boundary-crossing buffer emits slice_size bytes not window remainder; tail runs past buffer",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2026-56434",
+      "title": "Use-after-free when using ngx_http_ssi_module",
+      "cvss": 6.5,
+      "cvss_severity": "MEDIUM",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-416"
+      ],
+      "bug_class": "use-after-free",
+      "file": "src/mod/snx_mod_ssi.c",
+      "function": "snx_f_ssi_body",
+      "line_hint": 90,
+      "trigger": "ssi ctx arena freed at filter end while emitted iobufs reference freed var storage",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2026-42530",
+      "title": "Use-after-free in HTTP/3",
+      "cvss": 8.1,
+      "cvss_severity": "HIGH",
+      "nginx_severity": "major",
+      "cwe": [
+        "CWE-416",
+        "CWE-416"
+      ],
+      "bug_class": "use-after-free",
+      "file": "src/proto/snx_h3.c",
+      "function": "snx_quic_stream_frame",
+      "line_hint": 69,
+      "trigger": "reassembly memcpy reads s->data after request handler freed it",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2026-42055",
+      "title": "Buffer overflow in the ngx_http_proxy_v2_module and ngx_http_grpc_module",
+      "cvss": 8.1,
+      "cvss_severity": "HIGH",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-122",
+        "CWE-787",
+        "CWE-131"
+      ],
+      "bug_class": "heap buffer overflow",
+      "file": "src/mod/snx_mod_proxy.c",
+      "function": "snx_grpc_pack",
+      "line_hint": 36,
+      "trigger": "grpc frame buffer sized blen but 5-byte header + payload written",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2026-48142",
+      "title": "Buffer overread in the ngx_http_charset_module",
+      "cvss": 4.8,
+      "cvss_severity": "MEDIUM",
+      "nginx_severity": "low",
+      "cwe": [
+        "CWE-125"
+      ],
+      "bug_class": "buffer overread",
+      "file": "src/mod/snx_mod_charset.c",
+      "function": "snx_seq_len",
+      "line_hint": 19,
+      "trigger": "3-byte sequence check reads p[1]/p[2] without checking remaining input",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2026-9256",
+      "title": "Buffer overflow in the ngx_http_rewrite_module",
+      "cvss": 8.1,
+      "cvss_severity": "HIGH",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-122",
+        "CWE-122"
+      ],
+      "bug_class": "heap buffer overflow",
+      "file": "src/mod/snx_mod_rewrite.c",
+      "function": "snx_rw_rules",
+      "line_hint": 18,
+      "trigger": "set $var template evaluated into fixed 256-byte buffer via uncapped snx_complex_eval",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2026-42926",
+      "title": "HTTP/2 request injection in the ngx_http_proxy_module",
+      "cvss": 5.8,
+      "cvss_severity": "MEDIUM",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-172"
+      ],
+      "bug_class": "request injection",
+      "file": "src/mod/snx_mod_proxy.c",
+      "function": "snx_proxy_upstream",
+      "line_hint": 10,
+      "trigger": "client headers copied verbatim to upstream except Connection; TE/hop headers forwarded",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2026-42945",
+      "title": "Buffer overflow in the ngx_http_rewrite_module",
+      "cvss": 8.1,
+      "cvss_severity": "HIGH",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-122",
+        "CWE-131"
+      ],
+      "bug_class": "heap buffer overflow",
+      "file": "src/mod/snx_mod_rewrite.c",
+      "function": "snx_mod_rewrite_step",
+      "line_hint": 96,
+      "trigger": "rewrite replacement buffer sized for literal repl.n but $1..$9 expansion writes more",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2026-42946",
+      "title": "Buffer overread in the ngx_http_scgi_module and ngx_http_uwsgi_module",
+      "cvss": 6.5,
+      "cvss_severity": "MEDIUM",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-789"
+      ],
+      "bug_class": "buffer overread",
+      "file": "src/mod/snx_mod_scgi.c",
+      "function": "snx_mod_scgi",
+      "line_hint": 20,
+      "trigger": "long header names take sizeof(uname)=64-byte copy from shorter name storage",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2026-42934",
+      "title": "Buffer overread in the ngx_http_charset_module",
+      "cvss": 4.8,
+      "cvss_severity": "MEDIUM",
+      "nginx_severity": "low",
+      "cwe": [
+        "CWE-125"
+      ],
+      "bug_class": "buffer overread",
+      "file": "src/mod/snx_mod_charset.c",
+      "function": "snx_f_charset_body",
+      "line_hint": 49,
+      "trigger": "4-byte lead returns sl=4 unchecked; emit loop reads p[i] past buffer end",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2026-40460",
+      "title": "HTTP/3 address spoofing",
+      "cvss": 6.5,
+      "cvss_severity": "MEDIUM",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-290"
+      ],
+      "bug_class": "address spoofing",
+      "file": "src/proto/snx_h3.c",
+      "function": "snx_quic_packet",
+      "line_hint": 171,
+      "trigger": "source identity taken from packet SCID rather than peer address",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2026-40701",
+      "title": "resolver use-after-free in OCSP",
+      "cvss": 4.8,
+      "cvss_severity": "MEDIUM",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-416"
+      ],
+      "bug_class": "use-after-free",
+      "file": "src/snx_resolver.c",
+      "function": "snx_rslv_ocsp_hook",
+      "line_hint": 207,
+      "trigger": "OCSP hook keeps resolver chain node after resolver ctx is recycled",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2026-27654",
+      "title": "Buffer overflow in ngx_http_dav_module",
+      "cvss": 8.2,
+      "cvss_severity": "HIGH",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-122",
+        "CWE-120"
+      ],
+      "bug_class": "heap buffer overflow",
+      "file": "src/mod/snx_mod_dav.c",
+      "function": "snx_dav_cpmv",
+      "line_hint": 11,
+      "trigger": "destination buffer sized root+dest+1 but copy interleaves dav_ext bytes",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2026-27784",
+      "title": "Buffer overflow in the ngx_http_mp4_module",
+      "cvss": 7.8,
+      "cvss_severity": "HIGH",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-190",
+        "CWE-190"
+      ],
+      "bug_class": "integer overflow",
+      "file": "src/mod/snx_mod_mp4.c",
+      "function": "snx_mp4_co64",
+      "line_hint": 185,
+      "trigger": "co64 64-bit chunk offsets accumulated into start without bound",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2026-32647",
+      "title": "Buffer overflow in the ngx_http_mp4_module",
+      "cvss": 7.8,
+      "cvss_severity": "HIGH",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-125",
+        "CWE-125"
+      ],
+      "bug_class": "buffer overread",
+      "file": "src/mod/snx_mod_mp4.c",
+      "function": "snx_mp4_walk",
+      "line_hint": 38,
+      "trigger": "child window end derived from parent-declared asize can exceed real file",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2026-27651",
+      "title": "NULL pointer dereference while using CRAM-MD5 or APOP",
+      "cvss": 7.5,
+      "cvss_severity": "HIGH",
+      "nginx_severity": "low",
+      "cwe": [
+        "CWE-476",
+        "CWE-476"
+      ],
+      "bug_class": "NULL pointer dereference",
+      "file": "src/snx_mail.c",
+      "function": "snx_mail_cram_md5",
+      "line_hint": 21,
+      "trigger": "strlen(s->salt) on NULL salt when AUTH CRAM-MD5 precedes salt fetch",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2026-28753",
+      "title": "Injection in auth_http and XCLIENT",
+      "cvss": 3.7,
+      "cvss_severity": "LOW",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-93"
+      ],
+      "bug_class": "header injection",
+      "file": "src/snx_mail.c",
+      "function": "snx_mail_auth_http",
+      "line_hint": 20,
+      "trigger": "client HELO bytes copied verbatim into Auth-SMTP-Helo request header",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2026-28755",
+      "title": "OCSP result bypass in stream",
+      "cvss": 5.4,
+      "cvss_severity": "MEDIUM",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-863"
+      ],
+      "bug_class": "authorization bypass",
+      "file": "src/snx_stream.c",
+      "function": "snx_stream_ocsp_gate",
+      "line_hint": 44,
+      "trigger": "absent OCSP response treated as success (resp_n==0 passes)",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2026-1642",
+      "title": "SSL upstream injection",
+      "cvss": 5.9,
+      "cvss_severity": "MEDIUM",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-349",
+        "CWE-345"
+      ],
+      "bug_class": "improper certificate validation",
+      "file": "src/snx_tls.c",
+      "function": "snx_tls_upstream_verify",
+      "line_hint": 41,
+      "trigger": "upstream chain/hostname check always returns success",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2025-53859",
+      "title": "Buffer overread in the ngx_mail_smtp_module",
+      "cvss": 3.7,
+      "cvss_severity": "LOW",
+      "nginx_severity": "low",
+      "cwe": [
+        "CWE-125"
+      ],
+      "bug_class": "buffer overread",
+      "file": "src/snx_mail.c",
+      "function": "snx_mail_smtp_line",
+      "line_hint": 19,
+      "trigger": "MAIL FROM: compared 10 bytes against a 9-byte line boundary",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2025-23419",
+      "title": "SSL session reuse vulnerability",
+      "cvss": 4.3,
+      "cvss_severity": "MEDIUM",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-863",
+        "CWE-863"
+      ],
+      "bug_class": "session reuse without rebinding",
+      "file": "src/snx_tls.c",
+      "function": "snx_tls_session_ok",
+      "line_hint": 52,
+      "trigger": "session ticket reuse across listeners not bound to virtual server",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2024-7347",
+      "title": "Buffer overread in the ngx_http_mp4_module",
+      "cvss": 4.7,
+      "cvss_severity": "MEDIUM",
+      "nginx_severity": "low",
+      "cwe": [
+        "CWE-126",
+        "CWE-125"
+      ],
+      "bug_class": "buffer overread",
+      "file": "src/mod/snx_mod_mp4.c",
+      "function": "snx_mp4_trak",
+      "line_hint": 212,
+      "trigger": "16-byte handler read on atom smaller than 24 bytes",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2024-32760",
+      "title": "Buffer overwrite in HTTP/3",
+      "cvss": 6.5,
+      "cvss_severity": "MEDIUM",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-787",
+        "CWE-787"
+      ],
+      "bug_class": "buffer overwrite",
+      "file": "src/proto/snx_h3.c",
+      "function": "snx_quic_stream_frame",
+      "line_hint": 69,
+      "trigger": "off+len wraps so malloc is small; memcpy(nb+off,p,len) writes out of bounds",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2024-31079",
+      "title": "Stack overflow and use-after-free in HTTP/3",
+      "cvss": 4.8,
+      "cvss_severity": "MEDIUM",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-121",
+        "CWE-787"
+      ],
+      "bug_class": "stack buffer overflow",
+      "file": "src/proto/snx_h3.c",
+      "function": "snx_h3_headers",
+      "line_hint": 107,
+      "trigger": "literal field name collected into name[256] without bound",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2024-35200",
+      "title": "NULL pointer dereference in HTTP/3",
+      "cvss": 5.3,
+      "cvss_severity": "MEDIUM",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-476",
+        "CWE-476"
+      ],
+      "bug_class": "double free / stale length",
+      "file": "src/proto/snx_h3.c",
+      "function": "snx_h3_request",
+      "line_hint": 144,
+      "trigger": "s->data freed per fin pass while s->len stays set; next pass reuses it",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2024-34161",
+      "title": "Memory disclosure in HTTP/3",
+      "cvss": 5.3,
+      "cvss_severity": "MEDIUM",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-416",
+        "CWE-416"
+      ],
+      "bug_class": "memory disclosure",
+      "file": "src/proto/snx_h3.c",
+      "function": "snx_quic_stream_frame",
+      "line_hint": 69,
+      "trigger": "memcpy(nb, s->data, s->len) reads old buffer len even when new alloc is shorter",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2024-24989",
+      "title": "NULL pointer dereference in HTTP/3",
+      "cvss": 7.5,
+      "cvss_severity": "HIGH",
+      "nginx_severity": "major",
+      "cwe": [
+        "CWE-476",
+        "CWE-476"
+      ],
+      "bug_class": "NULL dereference",
+      "file": "src/proto/snx_h3.c",
+      "function": "snx_quic_stream_frame",
+      "line_hint": 69,
+      "trigger": "malloc failure on huge off+len leaves nb NULL; memcpy(nb+off) crashes",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2024-24990",
+      "title": "Use-after-free in HTTP/3",
+      "cvss": 7.5,
+      "cvss_severity": "HIGH",
+      "nginx_severity": "major",
+      "cwe": [
+        "CWE-416",
+        "CWE-416"
+      ],
+      "bug_class": "use-after-free",
+      "file": "src/proto/snx_h3.c",
+      "function": "snx_h3_headers",
+      "line_hint": 107,
+      "trigger": "header walk traverses s->data after free on repeated fin processing",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2022-41741",
+      "title": "Memory corruption in the ngx_http_mp4_module",
+      "cvss": 7.0,
+      "cvss_severity": "HIGH",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-787",
+        "CWE-787"
+      ],
+      "bug_class": "heap buffer overflow",
+      "file": "src/mod/snx_mod_mp4.c",
+      "function": "snx_mp4_stss",
+      "line_hint": 157,
+      "trigger": "sync-sample table filled per count without atom-bound check",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2022-41742",
+      "title": "Memory disclosure in the ngx_http_mp4_module",
+      "cvss": 7.1,
+      "cvss_severity": "HIGH",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-787",
+        "CWE-787"
+      ],
+      "bug_class": "memory disclosure",
+      "file": "src/mod/snx_mod_mp4.c",
+      "function": "snx_mp4_stts",
+      "line_hint": 131,
+      "trigger": "stts entry loop bounded only by count; reads past atom into rest of file",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2021-23017",
+      "title": "1-byte memory overwrite in resolver",
+      "cvss": 7.7,
+      "cvss_severity": "HIGH",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-193",
+        "CWE-193"
+      ],
+      "bug_class": "off-by-one overwrite",
+      "file": "src/snx_resolver.c",
+      "function": "snx_dns_name",
+      "line_hint": 32,
+      "trigger": "name buffer sized for labels; trailing '.' writes 1 byte past",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2019-9511",
+      "title": "Excessive CPU usage in HTTP/2 with small window updates",
+      "cvss": 7.5,
+      "cvss_severity": "HIGH",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-400",
+        "CWE-770"
+      ],
+      "bug_class": "CPU exhaustion",
+      "file": "src/proto/snx_h2.c",
+      "function": "snx_h2_window_update",
+      "line_hint": 42,
+      "trigger": "each small WINDOW_UPDATE triggers a rescan of pending frames",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2019-9513",
+      "title": "Excessive CPU usage in HTTP/2 with priority changes",
+      "cvss": 7.5,
+      "cvss_severity": "HIGH",
+      "nginx_severity": "low",
+      "cwe": [
+        "CWE-400",
+        "NVD-CWE-Other"
+      ],
+      "bug_class": "CPU exhaustion",
+      "file": "src/proto/snx_h2.c",
+      "function": "snx_h2_priority",
+      "line_hint": 61,
+      "trigger": "every PRIORITY update walks the whole stream list",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2019-9516",
+      "title": "Excessive memory usage in HTTP/2 with zero length headers",
+      "cvss": 6.5,
+      "cvss_severity": "MEDIUM",
+      "nginx_severity": "low",
+      "cwe": [
+        "CWE-400",
+        "CWE-770"
+      ],
+      "bug_class": "memory exhaustion",
+      "file": "src/proto/snx_h2.c",
+      "function": "snx_h2_headers",
+      "line_hint": 83,
+      "trigger": "header blocks accumulate unboundedly across CONTINUATION frames",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2018-16843",
+      "title": "Excessive memory usage in HTTP/2",
+      "cvss": 7.5,
+      "cvss_severity": "HIGH",
+      "nginx_severity": "low",
+      "cwe": [
+        "CWE-400",
+        "CWE-400"
+      ],
+      "bug_class": "memory exhaustion",
+      "file": "src/proto/snx_h2.c",
+      "function": "snx_h2_headers",
+      "line_hint": 83,
+      "trigger": "per-stream hdr_block grows with no cap on accumulated bytes",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2018-16844",
+      "title": "Excessive CPU usage in HTTP/2",
+      "cvss": 7.5,
+      "cvss_severity": "HIGH",
+      "nginx_severity": "low",
+      "cwe": [
+        "CWE-400",
+        "CWE-400"
+      ],
+      "bug_class": "CPU exhaustion",
+      "file": "src/proto/snx_h2.c",
+      "function": "snx_h2_conn",
+      "line_hint": 111,
+      "trigger": "frame dispatch walks stream list per frame with no rate limit",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2018-16845",
+      "title": "Memory disclosure in the ngx_http_mp4_module",
+      "cvss": 6.1,
+      "cvss_severity": "MEDIUM",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-400",
+        "CWE-835"
+      ],
+      "bug_class": "infinite loop / disclosure",
+      "file": "src/mod/snx_mod_mp4.c",
+      "function": "snx_mp4_walk",
+      "line_hint": 38,
+      "trigger": "atom size < 8 advances pos less than a header; walker loops/garbage-reads",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2017-7529",
+      "title": "Integer overflow in the range filter",
+      "cvss": 7.5,
+      "cvss_severity": "HIGH",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-190",
+        "CWE-190"
+      ],
+      "bug_class": "integer overflow / pre-buffer disclosure",
+      "file": "src/snx_filter.c",
+      "function": "snx_f_range_head",
+      "line_hint": 71,
+      "trigger": "suffix range start = fsize - suffix goes negative; body emit uses head+start before buffer",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2016-4450",
+      "title": "NULL pointer dereference while writing client request body",
+      "cvss": 7.5,
+      "cvss_severity": "HIGH",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-476"
+      ],
+      "bug_class": "NULL pointer dereference",
+      "file": "src/snx_http_body.c",
+      "function": "snx_http_discard_body",
+      "line_hint": 234,
+      "trigger": "unread request body drained at keepalive; tf->fd accessed on NULL body_tf",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2016-0742",
+      "title": "Invalid pointer dereference in resolver",
+      "cvss": 7.5,
+      "cvss_severity": "HIGH",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-476"
+      ],
+      "bug_class": "invalid pointer dereference",
+      "file": "src/snx_resolver.c",
+      "function": "snx_dns_parse",
+      "line_hint": 78,
+      "trigger": "question skip p+=4 can run past end; later name parse derefs past buffer",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2016-0746",
+      "title": "Use-after-free during CNAME response processing in resolver",
+      "cvss": 9.8,
+      "cvss_severity": "CRITICAL",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-416"
+      ],
+      "bug_class": "use-after-free",
+      "file": "src/snx_resolver.c",
+      "function": "snx_dns_parse",
+      "line_hint": 78,
+      "trigger": "CNAME target replaces owner name; chain keeps aliased storage after ctx recycle",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2016-0747",
+      "title": "Insufficient limits of CNAME resolution in resolver",
+      "cvss": 5.3,
+      "cvss_severity": "MEDIUM",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-400"
+      ],
+      "bug_class": "resource exhaustion",
+      "file": "src/snx_resolver.c",
+      "function": "snx_dns_name",
+      "line_hint": 32,
+      "trigger": "compression pointers followed without a bound; pointer loop spins forever",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2014-3616",
+      "title": "SSL session reuse vulnerability",
+      "cvss": 4.3,
+      "cvss_severity": "MEDIUM",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-613"
+      ],
+      "bug_class": "session reuse without rebinding",
+      "file": "src/snx_tls.c",
+      "function": "snx_tls_session_ok",
+      "line_hint": 52,
+      "trigger": "presented session id trusted without binding to current client",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2014-3556",
+      "title": "STARTTLS command injection",
+      "cvss": 6.8,
+      "cvss_severity": "MEDIUM",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-77"
+      ],
+      "bug_class": "command injection",
+      "file": "src/snx_mail.c",
+      "function": "snx_mail_smtp_line",
+      "line_hint": 19,
+      "trigger": "plaintext commands buffered in same read still processed after STARTTLS begins",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2014-0133",
+      "title": "SPDY heap buffer overflow",
+      "cvss": 7.5,
+      "cvss_severity": "HIGH",
+      "nginx_severity": "major",
+      "cwe": [
+        "CWE-787"
+      ],
+      "bug_class": "heap buffer overflow",
+      "file": "src/proto/snx_spdy.c",
+      "function": "snx_spdy_syn_stream",
+      "line_hint": 42,
+      "trigger": "name alloc'd nl bytes then nv[nl]='\\0' writes one past",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2014-0088",
+      "title": "SPDY memory corruption",
+      "cvss": 7.5,
+      "cvss_severity": "HIGH",
+      "nginx_severity": "major",
+      "cwe": [
+        "CWE-119"
+      ],
+      "bug_class": "memory corruption",
+      "file": "src/proto/snx_spdy.c",
+      "function": "snx_spdy_syn_stream",
+      "line_hint": 42,
+      "trigger": "name memcpy reads nl bytes from q which can run past inflated block end",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2013-4547",
+      "title": "Request line parsing vulnerability",
+      "cvss": 7.5,
+      "cvss_severity": "HIGH",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-116"
+      ],
+      "bug_class": "request line space smuggling",
+      "file": "src/snx_http.c",
+      "function": "snx_http_parse_reqline",
+      "line_hint": 73,
+      "trigger": "space-separated tokens after URI bypass URI validation (PS_URI_TAIL skips to HTTP/)",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2013-2070",
+      "title": "Memory disclosure with specially crafted HTTP backend responses",
+      "cvss": 5.8,
+      "cvss_severity": "MEDIUM",
+      "nginx_severity": "medium",
+      "cwe": [
+        "NVD-CWE-noinfo"
+      ],
+      "bug_class": "memory disclosure",
+      "file": "src/mod/snx_mod_proxy.c",
+      "function": "snx_proxy_upstream",
+      "line_hint": 10,
+      "trigger": "upstream response head/body referenced from stack scratch that escapes on partial write",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2013-2028",
+      "title": "Stack-based buffer overflow with specially crafted request",
+      "cvss": 7.5,
+      "cvss_severity": "HIGH",
+      "nginx_severity": "major",
+      "cwe": [
+        "CWE-787"
+      ],
+      "bug_class": "stack buffer overflow",
+      "file": "src/snx_http_body.c",
+      "function": "snx_http_read_chunked",
+      "line_hint": 15,
+      "trigger": "chunk size line copied into szbuf[32] without bounds; oversized hex line overflows stack",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2011-4963",
+      "title": "Vulnerabilities with Windows directory aliases",
+      "cvss": 5.0,
+      "cvss_severity": "MEDIUM",
+      "nginx_severity": "medium",
+      "cwe": [
+        "NVD-CWE-noinfo"
+      ],
+      "bug_class": "directory alias traversal",
+      "file": "src/os/snx_win32.c",
+      "function": "snx_win_alias",
+      "line_hint": 104,
+      "trigger": "alias joined verbatim with remainder; ../ escapes alias root",
+      "buildable": false
+    },
+    {
+      "cve": "CVE-2012-2089",
+      "title": "Buffer overflow in the ngx_http_mp4_module",
+      "cvss": 6.8,
+      "cvss_severity": "MEDIUM",
+      "nginx_severity": "major",
+      "cwe": [
+        "CWE-120"
+      ],
+      "bug_class": "buffer overflow",
+      "file": "src/mod/snx_mod_mp4.c",
+      "function": "snx_mp4_stsz",
+      "line_hint": 97,
+      "trigger": "sample count trusted for allocation and table fill; malformed count overflows",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2012-1180",
+      "title": "Memory disclosure with specially crafted backend responses",
+      "cvss": 5.0,
+      "cvss_severity": "MEDIUM",
+      "nginx_severity": "major",
+      "cwe": [
+        "CWE-416"
+      ],
+      "bug_class": "memory disclosure",
+      "file": "src/mod/snx_mod_proxy.c",
+      "function": "snx_proxy_upstream",
+      "line_hint": 10,
+      "trigger": "backend drain loop relays recv() chunks from stack buffer",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2011-4315",
+      "title": "Buffer overflow in resolver",
+      "cvss": 6.8,
+      "cvss_severity": "MEDIUM",
+      "nginx_severity": "medium",
+      "cwe": [
+        "CWE-787"
+      ],
+      "bug_class": "buffer overflow",
+      "file": "src/snx_resolver.c",
+      "function": "snx_dns_name",
+      "line_hint": 32,
+      "trigger": "label bytes copied into 128-byte name buffer without bound",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2010-2266",
+      "title": "Vulnerabilities with invalid UTF-8 sequence on Windows",
+      "cvss": 5.0,
+      "cvss_severity": "MEDIUM",
+      "nginx_severity": "major",
+      "cwe": [
+        "CWE-22"
+      ],
+      "bug_class": "invalid utf-8 acceptance",
+      "file": "src/os/snx_win32.c",
+      "function": "snx_win_utf8_check",
+      "line_hint": 58,
+      "trigger": "overlong encodings decoded to path separators pass the check",
+      "buildable": false
+    },
+    {
+      "cve": "CVE-2010-2263",
+      "title": "Vulnerabilities with Windows file default stream",
+      "cvss": 5.0,
+      "cvss_severity": "MEDIUM",
+      "nginx_severity": "major",
+      "cwe": [
+        "CWE-200"
+      ],
+      "bug_class": "default stream disclosure",
+      "file": "src/os/snx_win32.c",
+      "function": "snx_win_open_ads",
+      "line_hint": 89,
+      "trigger": "name:$DATA suffix honored when opening files",
+      "buildable": false
+    },
+    {
+      "cve": "CORE-2010-0121",
+      "title": "Vulnerabilities with Windows 8.3 filename pseudonyms",
+      "cvss": null,
+      "cvss_severity": null,
+      "nginx_severity": "major",
+      "cwe": [],
+      "bug_class": "8.3 filename access",
+      "file": "src/os/snx_win32.c",
+      "function": "snx_win_short_name",
+      "line_hint": 31,
+      "trigger": "short-name form of protected file accepted",
+      "buildable": false
+    },
+    {
+      "cve": "CVE-2009-4487",
+      "title": "An error log data are not sanitized",
+      "cvss": 6.8,
+      "cvss_severity": "MEDIUM",
+      "nginx_severity": "none",
+      "cwe": [
+        "NVD-CWE-noinfo"
+      ],
+      "bug_class": "unsanitized log output",
+      "file": "src/snx_util.c",
+      "function": "snx_log_write",
+      "line_hint": 497,
+      "trigger": "request-supplied data written to error log verbatim",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2009-3555",
+      "title": "The renegotiation vulnerability in SSL protocol",
+      "cvss": 9.8,
+      "cvss_severity": "CRITICAL",
+      "nginx_severity": "major",
+      "cwe": [
+        "CWE-295",
+        "CWE-300"
+      ],
+      "bug_class": "renegotiation injection",
+      "file": "src/snx_tls.c",
+      "function": "snx_tls_renegotiate",
+      "line_hint": 61,
+      "trigger": "client-initiated renegotiation answered on existing connection state",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2009-3898",
+      "title": "Directory traversal vulnerability",
+      "cvss": 4.9,
+      "cvss_severity": "MEDIUM",
+      "nginx_severity": "minor",
+      "cwe": [
+        "CWE-22"
+      ],
+      "bug_class": "directory traversal",
+      "file": "src/os/snx_win32.c",
+      "function": "snx_win_map_path",
+      "line_hint": 15,
+      "trigger": "uri bytes copied verbatim into path; ../ not filtered",
+      "buildable": false
+    },
+    {
+      "cve": "CVE-2009-2629",
+      "title": "Buffer underflow vulnerability",
+      "cvss": 7.5,
+      "cvss_severity": "HIGH",
+      "nginx_severity": "major",
+      "cwe": [
+        "CWE-787"
+      ],
+      "bug_class": "pre-buffer overread",
+      "file": "src/snx_http.c",
+      "function": "snx_http_parse_reqline",
+      "line_hint": 73,
+      "trigger": "request line starting at buffer head reads *(p-1) on CR/LF check",
+      "buildable": true
+    },
+    {
+      "cve": "CVE-2009-3896",
+      "title": "Null pointer dereference vulnerability",
+      "cvss": 5.0,
+      "cvss_severity": "MEDIUM",
+      "nginx_severity": "major",
+      "cwe": [
+        "CWE-119"
+      ],
+      "bug_class": "NULL pointer dereference",
+      "file": "src/snx_http_core.c",
+      "function": "snx_http_static",
+      "line_hint": 103,
+      "trigger": "absolute-form URI with no path leaves uri.p NULL; r->uri.p[r->uri.n-1] derefs NULL[-1]",
+      "buildable": true
+    }
+  ],
+  "extras": [
+    {
+      "id": "EXTRA-FCGI-PARAMS",
+      "modeled_on": "CVE-2013-2070 / fastcgi param packing class",
+      "bug_class": "stack buffer overflow",
+      "cwe": [
+        "CWE-121"
+      ],
+      "file": "src/mod/snx_mod_upstream.c",
+      "function": "snx_mod_fastcgi",
+      "line_hint": 350,
+      "trigger": "PARAMS pairs packed into params[4096] with no bound on pp; many or large fastcgi_param values + long request metadata overflow it",
+      "note": "new-feature module, not one of the canonical 68"
+    },
+    {
+      "id": "EXTRA-UWSGI-PKT",
+      "modeled_on": "same class, uwsgi wire format",
+      "bug_class": "stack buffer overflow",
+      "cwe": [
+        "CWE-121"
+      ],
+      "file": "src/mod/snx_mod_upstream.c",
+      "function": "snx_mod_uwsgi",
+      "line_hint": 530,
+      "trigger": "uwsgi_param key/value pairs written into pkt[8192] unchecked; long expanded values overflow the record",
+      "note": "new-feature module"
+    },
+    {
+      "id": "EXTRA-CACHE-TRAVERSAL",
+      "modeled_on": "cache key -> file path trust (nginx misc-cache class)",
+      "bug_class": "path traversal / arbitrary file write",
+      "cwe": [
+        "CWE-22"
+      ],
+      "file": "src/mod/snx_mod_cache.c",
+      "function": "snx_cache_file",
+      "line_hint": 77,
+      "trigger": "proxy_cache_key '$uri' embeds raw key text in the cache file path; a uri with ../ escapes the cache root on save/read",
+      "note": "new-feature module"
+    },
+    {
+      "id": "EXTRA-MEMCACHED-INJ",
+      "modeled_on": "ascii-protocol key injection",
+      "bug_class": "command injection",
+      "cwe": [
+        "CWE-77"
+      ],
+      "file": "src/mod/snx_mod_upstream.c",
+      "function": "snx_mod_memcached",
+      "line_hint": 640,
+      "trigger": "request uri/$memcached_key sent verbatim inside 'get %s\\r\\n'; embedded spaces/CRLF smuggle extra memcached commands",
+      "note": "new-feature module"
+    },
+    {
+      "id": "EXTRA-OFC-COLLISION",
+      "cwe": "CWE-436",
+      "modeled_on": "file confusion via truncated cache keys (open_file_cache class)",
+      "site": "src/snx_http_core.c snx_ofc_open",
+      "note": "snx_ofc_tbl keys are path[256] via snprintf truncation; two distinct paths sharing a 255-byte prefix collide and the first entry's fd is dup()ed to the second requester"
+    },
+    {
+      "id": "EXTRA-H3-UDP-MIX",
+      "cwe": "CWE-384",
+      "modeled_on": "QUIC session confusion across peers",
+      "site": "src/snx_ev.c accept quic branch / src/proto/snx_h3.c snx_h3_conn",
+      "note": "one persistent conn per worker over the shared UDP socket; datagrams from different senders append into the same q->inbuf cumulative parse buffer, mixing peer state"
+    },
+    {
+      "id": "EXTRA-IFRANGE-VALIDATOR",
+      "cwe": "CWE-345",
+      "modeled_on": "weak validator acceptance in conditional range handling",
+      "site": "src/snx_filter.c snx_f_range_head",
+      "note": "If-Range is only compared when r->etag.n != 0; a request with If-Range against an etag-less response still gets partial content even though the validator cannot match"
+    },
+    {
+      "id": "EXTRA-HPACK-ACCOUNTING",
+      "cwe": "CWE-400",
+      "modeled_on": "CVE-2022-41741/41742-class h2 memory exhaustion",
+      "site": "src/proto/snx_hpack.c snx_hpack_insert",
+      "note": "dynamic-table entry size counts name+value only; RFC 7541 4.1 requires +32 bytes per entry, so the table exceeds SETTINGS capacity ~25% before eviction"
+    },
+    {
+      "id": "EXTRA-ZONE-KEY",
+      "cwe": "CWE-787",
+      "modeled_on": "shared-zone key buffer overflow",
+      "site": "src/mod/snx_mod_limits.c snx_zone_ent",
+      "note": "zone entry key is uchar[128] but memcpy uses unbounded key->n; long keys (e.g. $uri-based limit keys) overflow the shared-mem entry"
+    },
+    {
+      "id": "EXTRA-ZONE-RACE",
+      "cwe": "CWE-362",
+      "modeled_on": "unprotected shared-list mutation across workers",
+      "site": "src/mod/snx_mod_limits.c snx_zone_ent",
+      "note": "zone entries push onto the MAP_SHARED list head with no locking; two workers inserting concurrently can tear the list"
+    },
+    {
+      "id": "EXTRA-PP-SSCANF",
+      "cwe": "CWE-120",
+      "modeled_on": "PROXY-protocol header parsing (unvalidated sscanf)",
+      "site": "src/snx_stream.c snx_stream_conn proxy_protocol block",
+      "note": "sscanf result unchecked; malformed PROXY lines leave src/dst uninitialised while the header is still consumed"
+    },
+    {
+      "id": "EXTRA-TLS-SNI-OVERFLOW",
+      "cwe": "CWE-121",
+      "modeled_on": "SNI server_name staged into a fixed routing buffer",
+      "site": "src/snx_tls.c snx_tls_sni_cb memcpy(name, sni, n)",
+      "note": "char name[64]; ClientHello server_name up to 255 bytes overflows it; ASan-confirmed via openssl s_client -servername <200B>"
+    },
+    {
+      "id": "EXTRA-TLS-SESSION-CTX",
+      "cwe": "CWE-384",
+      "modeled_on": "session id context shared across vhosts",
+      "site": "src/snx_tls.c snx_tls_setup SSL_CTX_set_session_id_context",
+      "note": "constant 'snx' id context for every server ctx; a session issued under one cert can resume under another vhost's ctx after SNI switch"
+    },
+    {
+      "id": "EXTRA-PREREAD-PARTIAL",
+      "cwe": "CWE-288",
+      "modeled_on": "route decision on truncated preread prefix",
+      "site": "src/snx_stream.c snx_stream_conn preread block memcmp",
+      "note": "m=min(rt.n,nto_up) compares only received bytes; a single 'G' locks the 'GET /x' route before the rest arrives (live-confirmed)"
+    },
+    {
+      "id": "EXTRA-JWT-EXP-SCAN",
+      "cwe": "CWE-345",
+      "modeled_on": "JSON claim extracted by substring scan",
+      "site": "src/mod/snx_mod_jwt.c snx_jwt_exp",
+      "note": "payload decoded then scanned for '\"exp\"' anywhere; nested/quoted exp fields over-accepted"
+    },
+    {
+      "id": "EXTRA-JWT-NOSIG",
+      "cwe": "CWE-347",
+      "modeled_on": "alg:none / unsigned-token acceptance",
+      "site": "src/mod/snx_mod_jwt.c snx_mod_auth_jwt",
+      "note": "signature segment decoded but never verified; any alg passes"
+    },
+    {
+      "id": "EXTRA-UP-KEEPALIVE-STALE",
+      "cwe": "CWE-664",
+      "file": "src/mod/snx_mod_proxy.c",
+      "fn": "snx_ka_get/snx_proxy_upstream",
+      "modeled_on": "upstream keepalive stale-fd reuse",
+      "note": "idle fds cached by host:port with no liveness probe; peer close leaves dead fd reused on next request (request 1: 200, request 2: 502 via cached dead conn). live-verified on /up/."
+    },
+    {
+      "id": "EXTRA-GUNZIP-HDR",
+      "cwe": "CWE-125",
+      "file": "src/mod/snx_mod_gunzip.c",
+      "fn": "snx_gz_hdr_skip",
+      "modeled_on": "gunzip optional-header unbounded scan",
+      "note": "FNAME/FCOMMENT fields scanned for NUL with no bounds check; crafted .gz (FLG=0x18, no NUL) reads past the tight malloc(flen) body buf. ASan heap-buffer-overflow live-confirmed via /gunz/evil.txt + gzip_static always."
+    },
+    {
+      "id": "EXTRA-ADDITION-LEN",
+      "cwe": "CWE-444",
+      "file": "src/snx_http_core.c",
+      "fn": "snx_http_static (addition block)",
+      "modeled_on": "addition module length desync",
+      "note": "add_before/after_body reads file capped at 65536 but cl_n += full fstat size; addition file >64KB -> Content-Length exceeds bytes sent -> client waits for remainder (response truncation/keepalive desync)."
+    },
+    {
+      "id": "EXTRA-H2-DEP-CYCLE",
+      "cwe": "CWE-674",
+      "file": "src/proto/snx_h2.c",
+      "fn": "snx_h2_dep_reparent",
+      "modeled_on": "CVE-2019-9513 h2 dependency-tree resource exhaustion",
+      "note": "PRIORITY accepts self/mutual stream dependencies; RST_STREAM reparents children by recursive walk with no cycle guard -> unbounded recursion -> stack overflow (ASan live-confirmed, pre-auth single conn)."
+    },
+    {
+      "id": "EXTRA-H2-MAXSTREAMS",
+      "cwe": "CWE-770",
+      "file": "src/proto/snx_h2.c",
+      "fn": "snx_h2_headers",
+      "modeled_on": "CVE-2019-9511-style h2 stream flood",
+      "note": "max_streams=256 advertised in SETTINGS but never enforced at stream creation; client opens unbounded concurrent streams -> arena growth/memory exhaustion."
+    },
+    {
+      "id": "EXTRA-H2-RST-LEAK",
+      "cwe": "CWE-772",
+      "file": "src/proto/snx_h2.c",
+      "fn": "RST_STREAM dispatch",
+      "modeled_on": "h2 rapid-reset stream accounting",
+      "note": "closed streams are marked CLOSED but never unlinked; a rapid-reset flood keeps every stream+hdr_block in the conn list until teardown -> memory DoS."
+    },
+    {
+      "id": "EXTRA-H2-FLOWCTRL",
+      "cwe": "CWE-190",
+      "file": "src/proto/snx_h2.c",
+      "fn": "DATA/WINDOW_UPDATE handlers",
+      "modeled_on": "h2 flow-control window accounting",
+      "note": "DATA subtracts payload from stream/conn window with no floor check; WINDOW_UPDATE adds arbitrary increment to closed streams -> negative/overflowed window state accepted."
+    },
+    {
+      "id": "EXTRA-HPACK-HUFF-EXPAND",
+      "cwe": "CWE-787",
+      "file": "src/proto/snx_hpack.c",
+      "fn": "snx_huff_decode/snx_hpack_str",
+      "modeled_on": "huffman expansion sized on wire length",
+      "note": "str reader bounds wire length (ln < cap) but decode emits up to 1.6x into the same stack buf; 1563B huffman of 5-bit symbols -> 2500B into vbuf[2048] -> stack OOB write (ASan live-confirmed via h2 HEADERS)."
+    },
+    {
+      "id": "EXTRA-UP-SLOW-TRUNC",
+      "cwe": "CWE-400",
+      "file": "src/mod/snx_mod_proxy.c",
+      "fn": "upstream drain loop",
+      "modeled_on": "upstream read-timeout silent truncation",
+      "note": "nonblocking upstream recv times out after 10s stall -> loop breaks and response is finalized as complete with cl_n still declaring the full length; a slow/stalled upstream yields truncated bodies delivered as 200."
+    },
+    {
+      "id": "EXTRA-STREAM-UDP-PEER",
+      "file": "src/snx_stream.c",
+      "fn": "snx_stream_udp_conn",
+      "cwe": "CWE-200",
+      "modeled_on": "UDP session mixup",
+      "note": "static last_peer pins the first client sockaddr; later datagrams' replies leak to that peer. Live: two clients on :9003."
+    },
+    {
+      "id": "EXTRA-MAIL-AUTH-SERVER",
+      "file": "src/snx_mail.c",
+      "fn": "snx_mail_auth_http",
+      "cwe": "CWE-120",
+      "modeled_on": "auth_http reply injection",
+      "note": "Auth-Server value memcpy into malloc(64) unbounded -> heap overflow via hostile auth responder. Live: long Auth-Server to :8025."
+    },
+    {
+      "id": "EXTRA-UP-QUEUE-LEAK",
+      "file": "src/mod/snx_mod_upstream.c",
+      "fn": "snx_upstream_pick",
+      "cwe": "CWE-667",
+      "modeled_on": "queue accounting leak",
+      "note": "conns++ claimed before queue wait; on timeout returns NULL without releasing -> peer saturates permanently -> DoS."
+    },
+    {
+      "id": "EXTRA-IMAGE-MARKER-WALK",
+      "file": "src/mod/snx_mod_image.c",
+      "fn": "snx_jpeg_dims",
+      "cwe": "CWE-125",
+      "modeled_on": "jpeg marker parse",
+      "note": "p += 1+seg trusts file seg length; bailout allows p < end+64 -> OOB read past buffer. Live: /img/evil.jpg -> ASan heap-buffer-overflow."
+    },
+    {
+      "id": "EXTRA-XSLT-PI",
+      "file": "src/mod/snx_mod_image.c",
+      "fn": "snx_f_xslt_body",
+      "cwe": "CWE-120",
+      "modeled_on": "bounded include buffer",
+      "note": "stylesheet bytes cpymem into pi[512] at +22 with n up to 512 -> stack overflow for large .xsl."
+    },
+    {
+      "id": "EXTRA-WS-101-TRUST",
+      "file": "src/mod/snx_mod_proxy.c",
+      "fn": "snx_proxy_tunnel",
+      "cwe": "CWE-345",
+      "modeled_on": "upgrade token not verified",
+      "note": "any upstream 101 opens the duplex tunnel; reply Upgrade token never matched to the request. Live: /split/ + Upgrade: websocket."
+    },
+    {
+      "id": "EXTRA-UP-STICKY-OOB",
+      "file": "src/mod/snx_mod_upstream.c",
+      "fn": "snx_upstream_pick",
+      "cwe": "CWE-125",
+      "modeled_on": "sticky session index trust",
+      "note": "client Cookie srv=<idx> indexes peers[] verbatim -> OOB read. Live: Cookie srv=9 on /st/ -> ASan heap-use-after-free."
+    }
+  ]
+}

@@ -1,0 +1,2628 @@
+{
+  "source": "https://nginx.org/en/security_advisories.html",
+  "generated": "2026-11-12",
+  "count": 68,
+  "vulnerabilities": [
+    {
+      "id": "CVE-2026-15176",
+      "title": "Buffer overflow when using alias with rewrite",
+      "severity": "medium",
+      "vulnerable_versions": "0.1.29-1.31.6",
+      "fixed_versions": "1.31.7+, 1.30.6+",
+      "patched": true,
+      "advisory_url": "https://my.f5.com/manage/s/article/K000162416",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2026-15176",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15176",
+        "published": "2026-10-14T15:17:19.140",
+        "lastModified": "2026-10-15T11:17:28.110",
+        "cwe": [
+          "CWE-122"
+        ],
+        "nvd_description": "A vulnerability exists in NGINX Plus and NGINX Open Source when a location is configured that uses the alias directive together with rewrite and a set or return directive referencing the $request_filename variable. Alternatively, the same result could be achieved when the $request_filename variable is used in an access log format directive. An unauthenticated attacker along with conditions beyond their control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, attackers can execute code on systems with Address Space Layout Randomization (ASLR) disabled or when the attacker can bypass ASLR.\n\nImpact:\nThis vulnerability may allow remote attackers to cause a denial-of-service (DoS) on the NGINX system or to possibly trigger a code execution. There is no control plane exposure; this is a data plane issue only.\n\n\n\n\nNote: Software versions which have reached End of Technical Support (EoTS) are not evaluated.",
+        "cvss": {
+          "version": "3.1",
+          "score": 8.1,
+          "severity": "HIGH",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 8.1,
+        "severity": "HIGH",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
+      },
+      "cwe": [
+        "CWE-122"
+      ]
+    },
+    {
+      "id": "CVE-2026-93479",
+      "title": "Buffer overflow in script evaluation",
+      "severity": "medium",
+      "vulnerable_versions": "1.31.2-1.31.6, 1.30.0-1.30.5",
+      "fixed_versions": "1.31.7+, 1.30.6+",
+      "patched": true,
+      "advisory_url": "https://my.f5.com/manage/s/article/K000162607",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2026-93479",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93479",
+        "published": "2026-10-14T15:17:26.810",
+        "lastModified": "2026-10-15T11:18:08.093",
+        "cwe": [
+          "CWE-122"
+        ],
+        "nvd_description": "A vulnerability exists in NGINX Plus and NGINX Open Source when a map directive uses regex matching and the root directive or access log format references the map's regex capture variables before referencing the map output variable. Alternatively, the same result could be achieved by using a non-cacheable variable in a string expression under certain conditions. An unauthenticated attacker along with conditions beyond their control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, attackers can execute code on systems with Address Space Layout Randomization (ASLR) disabled or when the attacker can bypass ASLR.\n\nImpact:\u00a0\nThis vulnerability may allow remote attackers to cause a denial-of-service (DoS) on the NGINX system or to possibly trigger a code execution. There is no control plane exposure; this is a data plane issue only.\n\nNote: Software versions which have reached End of Technical Support (EoTS) are not evaluated.",
+        "cvss": {
+          "version": "3.1",
+          "score": 8.1,
+          "severity": "HIGH",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 8.1,
+        "severity": "HIGH",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
+      },
+      "cwe": [
+        "CWE-122"
+      ]
+    },
+    {
+      "id": "CVE-2026-95101",
+      "title": "Request body injection in HTTP/3",
+      "severity": "medium",
+      "vulnerable_versions": "1.25.0-1.31.6",
+      "fixed_versions": "1.31.7+, 1.30.6+",
+      "patched": true,
+      "advisory_url": "https://my.f5.com/manage/s/article/K000162613",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2026-95101",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95101",
+        "published": "2026-10-14T15:17:27.100",
+        "lastModified": "2026-10-15T17:17:32.607",
+        "cwe": [
+          "CWE-172"
+        ],
+        "nvd_description": "Description\nNGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_v3_module module. When using HTTP/3 with \n\nproxy_request_buffering on\u00a0directive,\u00a0an unauthenticated attacker may be able to inject data in the proxied request.\n\nImpact\n\n\nThis vulnerability may allow remote attackers to \n\ninject data in the proxied request.\u00a0 There is no control plane exposure; this is a data plane issue only.\n\n\n\n\n\n\nNote: Software versions which have reached End of Technical Support (EoTS) are not evaluated.",
+        "cvss": {
+          "version": "3.1",
+          "score": 5.3,
+          "severity": "MEDIUM",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 5.3,
+        "severity": "MEDIUM",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N"
+      },
+      "cwe": [
+        "CWE-172"
+      ]
+    },
+    {
+      "id": "CVE-2026-97629",
+      "title": "Session forgery when using TLS session tickets",
+      "severity": "medium",
+      "vulnerable_versions": "1.23.2-1.31.6",
+      "fixed_versions": "1.31.7+, 1.30.6+",
+      "patched": true,
+      "advisory_url": "https://my.f5.com/manage/s/article/K000162606",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2026-97629",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97629",
+        "published": "2026-10-14T15:17:28.600",
+        "lastModified": "2026-10-15T17:17:33.410",
+        "cwe": [
+          "CWE-908"
+        ],
+        "nvd_description": "Description\nWhen NGINX Plus or NGINX Open Source is configured with\u00a0ssl_session_cache \n\nshared:name:size\n\nwithout an explicit ssl_session_ticket_key file\u00a0directives to automatically rotate SSL session ticket keys, a remote unauthenticated attacker is able to forge client SSL sessions \n\nin a non-deterministic manner that is beyond the attacker's control. An attacker could leverage this vulnerability to bypass verification of client certificates.\n\nImpact\n\n\nThis vulnerability can lead to the exposure of resources or functionality to unintended actors, possibly providing attackers with access to sensitive information. There is no control plane exposure; this is a data plane issue only.\n\n\n\n\n\n\nNote: Software versions which have reached End of Technical Support (EoTS) are not evaluated.",
+        "cvss": {
+          "version": "3.1",
+          "score": 6.5,
+          "severity": "MEDIUM",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:L/A:N"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 6.5,
+        "severity": "MEDIUM",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:L/A:N"
+      },
+      "cwe": [
+        "CWE-908"
+      ]
+    },
+    {
+      "id": "CVE-2026-97205",
+      "title": "Use-after-free when using asynchronous file I/O (AIO)",
+      "severity": "medium",
+      "vulnerable_versions": "0.8.11-1.31.6",
+      "fixed_versions": "1.31.7+, 1.30.6+",
+      "patched": true,
+      "advisory_url": "https://my.f5.com/manage/s/article/K000162608",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2026-97205",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97205",
+        "published": "2026-10-14T15:17:28.200",
+        "lastModified": "2026-10-15T11:18:08.670",
+        "cwe": [
+          "CWE-416"
+        ],
+        "nvd_description": "NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_core_module module. When asynchronous file I/O (AIO) is enabled in certain configurations, processing a Server Side Includes (SSI) page containing \u201cinclude virtual\u201d commands may trigger a Use-After-Free (UAF) in the NGINX worker process. This may cause memory corruption or a worker process crash. Additionally, attackers can execute code on systems with Address Space Layout Randomization (ASLR) disabled or when the attacker can bypass ASLR.\n\nImpact:\nThis vulnerability may allow remote attackers to cause a denial-of-service (DoS) on the NGINX system, corrupt its memory, or possibly trigger code execution. There is no control plane exposure; this is a data plane issue only.\n\n\n\n\nNote: Software versions which have reached End of Technical Support (EoTS) are not evaluated.",
+        "cvss": {
+          "version": "3.1",
+          "score": 8.1,
+          "severity": "HIGH",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 8.1,
+        "severity": "HIGH",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
+      },
+      "cwe": [
+        "CWE-416"
+      ]
+    },
+    {
+      "id": "CVE-2026-90439",
+      "title": "Buffer overflow when using ngx_http_v3_module",
+      "severity": "medium",
+      "vulnerable_versions": "1.29.2-1.31.5",
+      "fixed_versions": "1.31.6+, 1.30.5+",
+      "patched": true,
+      "advisory_url": "https://my.f5.com/manage/s/article/K000162604",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2026-90439",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90439",
+        "published": "2026-09-15T15:17:27.023",
+        "lastModified": "2026-09-18T19:34:36.657",
+        "cwe": [
+          "CWE-122"
+        ],
+        "nvd_description": "NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_v3_module module. When using HTTP/3 with OpenSSL versions <= OpenSSL 3.5.0 under certain configurations, a limited heap buffer overflow could happen while processing a TLS handshake. This can happen in a non-deterministic manner that is beyond the attacker's control.\u00a0This may cause a heap buffer overflow in the NGINX worker process leading to a restart and/or limited data corruption.\n\nImpact:\nThis vulnerability may allow remote attackers to cause a denial-of-service (DoS) on the NGINX system or limited data corruption. There is no control plane exposure; this is a data plane issue only.\n\n\n\n\nNote: Software versions which have reached End of Technical Support (EoTS) are not evaluated.",
+        "cvss": {
+          "version": "3.1",
+          "score": 6.5,
+          "severity": "MEDIUM",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:L"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 6.5,
+        "severity": "MEDIUM",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:L"
+      },
+      "cwe": [
+        "CWE-122"
+      ]
+    },
+    {
+      "id": "CVE-2026-42533",
+      "title": "Buffer overflow when using map and regex",
+      "severity": "major",
+      "vulnerable_versions": "0.9.6-1.31.2",
+      "fixed_versions": "1.31.3+, 1.30.4+",
+      "patched": true,
+      "advisory_url": "https://my.f5.com/manage/s/article/K000162097",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2026-42533",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42533",
+        "published": "2026-07-15T15:16:33.480",
+        "lastModified": "2026-11-03T23:17:43.553",
+        "cwe": [
+          "CWE-122"
+        ],
+        "nvd_description": "A vulnerability exists in NGINX Plus and NGINX Open Source when a map\u00a0directive uses regex matching and a string expression references the map's regex capture variables before referencing the map output variable. Alternatively, the same result could be achieved by using a non-cacheable variable in a string expression under certain conditions. An unauthenticated attacker along with conditions beyond their control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, attackers can execute code on systems with Address Space Layout Randomization (ASLR) disabled or when the attacker can bypass ASLR.\n\nImpact:\nThis vulnerability may allow remote attackers to cause a denial-of-service (DoS) on the NGINX system or to possibly trigger a code execution. There is no control plane exposure; this is a data plane issue only.\n\n\n\n\n\u00a0Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.",
+        "cvss": {
+          "version": "3.1",
+          "score": 8.1,
+          "severity": "HIGH",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 8.1,
+        "severity": "HIGH",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
+      },
+      "cwe": [
+        "CWE-122"
+      ]
+    },
+    {
+      "id": "CVE-2026-60005",
+      "title": "Memory disclosure when using ngx_http_slice_module",
+      "severity": "medium",
+      "vulnerable_versions": "1.15.8-1.31.2",
+      "fixed_versions": "1.31.3+, 1.30.4+",
+      "patched": true,
+      "advisory_url": "https://my.f5.com/manage/s/article/K000162100",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2026-60005",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-60005",
+        "published": "2026-07-15T16:16:49.820",
+        "lastModified": "2026-08-11T15:09:03.683",
+        "cwe": [
+          "CWE-908"
+        ],
+        "nvd_description": "NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_slice_module module. When the slice\u00a0directive and unnamed regex captures are configured or when a background cache update happens, unauthenticated attackers can send requests that may cause uninitialized memory access in the NGINX worker process, leading to limited disclosure of memory or a restart.\n\nImpact:\nThis vulnerability may allow remote, unauthenticated attackers to have limited control to disclose memory contents or restart the NGINX worker process. There is no control plane exposure; this is a data plane issue only.\nNote: The ngx_http_slice_module\u00a0module is not enabled by default; it's enabled with the --with-http_slice_module\u00a0configuration parameter.\n\nNote: Software versions which have reached End of Technical Support (EoTS) are not evaluated.",
+        "cvss": {
+          "version": "3.1",
+          "score": 8.2,
+          "severity": "HIGH",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:H"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 8.2,
+        "severity": "HIGH",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:H"
+      },
+      "cwe": [
+        "CWE-908"
+      ]
+    },
+    {
+      "id": "CVE-2026-56434",
+      "title": "Use-after-free when using ngx_http_ssi_module",
+      "severity": "medium",
+      "vulnerable_versions": "0.8.11-1.31.2",
+      "fixed_versions": "1.31.3+, 1.30.4+",
+      "patched": true,
+      "advisory_url": "https://my.f5.com/manage/s/article/K000162098",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2026-56434",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56434",
+        "published": "2026-07-15T15:16:45.700",
+        "lastModified": "2026-08-10T15:27:56.373",
+        "cwe": [
+          "CWE-416"
+        ],
+        "nvd_description": "NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_ssi_module\u00a0module. This vulnerability may exist when the Server-Side Includes (SSI), proxy_pass, and proxy_buffering off\u00a0directives are configured. With this configuration, an unauthenticated attacker with man-in-the-middle (MITM) ability to control responses from an upstream server may be able to cause a use-after-free in the NGINX worker process. This issue may lead to limited modification of memory or a restart of the NGINX worker process.\n\nImpact:\nThis vulnerability may allow remote attackers to have limited control to modify memory contents or restart the NGINX worker process. There is no control plane exposure; this is a data plane issue only.\n\nNote: Software versions which have reached End of Technical Support (EoTS) are not evaluated.",
+        "cvss": {
+          "version": "3.1",
+          "score": 6.5,
+          "severity": "MEDIUM",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:H"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 6.5,
+        "severity": "MEDIUM",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:H"
+      },
+      "cwe": [
+        "CWE-416"
+      ]
+    },
+    {
+      "id": "CVE-2026-42530",
+      "title": "Use-after-free in HTTP/3",
+      "severity": "major",
+      "vulnerable_versions": "1.31.0-1.31.1",
+      "fixed_versions": "1.31.2+",
+      "patched": true,
+      "advisory_url": "https://my.f5.com/manage/s/article/K000161616",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2026-42530",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42530",
+        "published": "2026-06-17T15:16:50.630",
+        "lastModified": "2026-10-26T12:10:00.130",
+        "cwe": [
+          "CWE-416",
+          "CWE-416"
+        ],
+        "nvd_description": "NGINX Open Source has a vulnerability in the ngx_http_v3_module\u00a0module. When NGINX Open Source is configured to use the HTTP/3 QUIC module, a remote unauthenticated attacker along with conditions beyond their control can use a specially crafted HTTP/3 session to reopen a QPACK encoder stream. This may cause a Use-after-Free in the NGINX worker process leading to a restart. Additionally, attackers can execute code on systems with Address Space Layout Randomization (ASLR) disabled or when the attacker can bypass ASLR.  \n\n\nNote: Software versions which have reached End of Technical Support (EoTS) are not evaluated.",
+        "cvss": {
+          "version": "3.1",
+          "score": 8.1,
+          "severity": "HIGH",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 8.1,
+        "severity": "HIGH",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
+      },
+      "cwe": [
+        "CWE-416",
+        "CWE-416"
+      ]
+    },
+    {
+      "id": "CVE-2026-42055",
+      "title": "Buffer overflow in the ngx_http_proxy_v2_module and ngx_http_grpc_module",
+      "severity": "medium",
+      "vulnerable_versions": "1.13.10-1.31.1",
+      "fixed_versions": "1.31.2+, 1.30.3+",
+      "patched": true,
+      "advisory_url": "https://my.f5.com/manage/s/article/K000161584",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2026-42055",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42055",
+        "published": "2026-06-17T15:16:50.353",
+        "lastModified": "2026-09-14T13:18:34.690",
+        "cwe": [
+          "CWE-122",
+          "CWE-787",
+          "CWE-131"
+        ],
+        "nvd_description": "NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_proxy_v2_module\u00a0and ngx_http_grpc_module\u00a0modules. This vulnerability exists when the proxy_http_version to 2\u00a0or grpc_pass\u00a0directives are used to proxy HTTP/2 traffic, the ignore_invalid_headers\u00a0directive is set to off, and the large_client_header_buffers\u00a0directive size is larger than 2 megabytes. A remote, unauthenticated attacker, along with conditions beyond their control, could send large headers while creating an upstream request. This may cause a heap-based buffer overflow in the NGINX worker process leading to a restart. Additionally, attackers can execute code on systems with Address Space Layout Randomization (ASLR) disabled or when the attacker can bypass ASLR. \n\n\nNote: Software versions which have reached End of Technical Support (EoTS) are not evaluated.",
+        "cvss": {
+          "version": "3.1",
+          "score": 8.1,
+          "severity": "HIGH",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 8.1,
+        "severity": "HIGH",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
+      },
+      "cwe": [
+        "CWE-122",
+        "CWE-787",
+        "CWE-131"
+      ]
+    },
+    {
+      "id": "CVE-2026-48142",
+      "title": "Buffer overread in the ngx_http_charset_module",
+      "severity": "low",
+      "vulnerable_versions": "0.3.50-1.31.1",
+      "fixed_versions": "1.31.2+, 1.30.3+",
+      "patched": true,
+      "advisory_url": "https://my.f5.com/manage/s/article/K000161585",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2026-48142",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48142",
+        "published": "2026-06-17T15:16:59.040",
+        "lastModified": "2026-08-11T15:03:44.877",
+        "cwe": [
+          "CWE-125"
+        ],
+        "nvd_description": "NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_charset_module\u00a0module. When content is served or proxied through a location block with both source_charset\u00a0utf-8; and a charset\u00a0directive (for example, charset koi8-r;) configured, remote, unauthenticated attackers can send requests (in conjunction with conditions beyond their control) to cause a heap buffer over-read in the NGINX worker process, leading to limited disclosure of memory or a restart. \n\n\nNote: Software versions which have reached End of Technical Support (EoTS) are not evaluated.",
+        "cvss": {
+          "version": "3.1",
+          "score": 4.8,
+          "severity": "MEDIUM",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:L"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 4.8,
+        "severity": "MEDIUM",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:L"
+      },
+      "cwe": [
+        "CWE-125"
+      ]
+    },
+    {
+      "id": "CVE-2026-9256",
+      "title": "Buffer overflow in the ngx_http_rewrite_module",
+      "severity": "medium",
+      "vulnerable_versions": "0.1.17-1.31.0",
+      "fixed_versions": "1.31.1+, 1.30.2+",
+      "patched": true,
+      "advisory_url": "https://my.f5.com/manage/s/article/K000161377",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2026-9256",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9256",
+        "published": "2026-05-22T15:16:27.073",
+        "lastModified": "2026-08-25T13:19:33.400",
+        "cwe": [
+          "CWE-122",
+          "CWE-122"
+        ],
+        "nvd_description": "NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_rewrite_module module. This vulnerability exists when a rewrite directive uses a regex pattern with distinct, overlapping Perl-Compatible Regular Expression (PCRE) captures (for example, ^/((.*))$) and a replacement string that references multiple such captures (for example, $1$2) in a redirect or arguments context. An unauthenticated attacker along with conditions beyond their control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, attackers can execute code on systems with Address Space Layout Randomization (ASLR) disabled or when the attacker can bypass ASLR. \n\n\nNote: Software versions which have reached End of Technical Support (EoTS) are not evaluated.",
+        "cvss": {
+          "version": "3.1",
+          "score": 8.1,
+          "severity": "HIGH",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 8.1,
+        "severity": "HIGH",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
+      },
+      "cwe": [
+        "CWE-122",
+        "CWE-122"
+      ]
+    },
+    {
+      "id": "CVE-2026-42926",
+      "title": "HTTP/2 request injection in the ngx_http_proxy_module",
+      "severity": "medium",
+      "vulnerable_versions": "1.29.4-1.30.0",
+      "fixed_versions": "1.31.0+, 1.30.1+",
+      "patched": true,
+      "advisory_url": "https://my.f5.com/manage/s/article/K000161131",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2026-42926",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42926",
+        "published": "2026-05-13T16:16:49.640",
+        "lastModified": "2026-10-26T14:10:00.130",
+        "cwe": [
+          "CWE-172"
+        ],
+        "nvd_description": "When NGINX Open Source is configured to proxy HTTP/2 traffic by setting proxy_http_version\u00a0to 2, and also uses proxy_set_body, an attacker may be able to inject frame headers and payload bytes to the upstream peer.\u00a0 Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.",
+        "cvss": {
+          "version": "3.1",
+          "score": 5.8,
+          "severity": "MEDIUM",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:N/I:L/A:N"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 5.8,
+        "severity": "MEDIUM",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:N/I:L/A:N"
+      },
+      "cwe": [
+        "CWE-172"
+      ]
+    },
+    {
+      "id": "CVE-2026-42945",
+      "title": "Buffer overflow in the ngx_http_rewrite_module",
+      "severity": "medium",
+      "vulnerable_versions": "0.6.27-1.30.0",
+      "fixed_versions": "1.31.0+, 1.30.1+",
+      "patched": true,
+      "advisory_url": "https://my.f5.com/manage/s/article/K000161019",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2026-42945",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42945",
+        "published": "2026-05-13T16:16:50.190",
+        "lastModified": "2026-10-26T14:10:00.130",
+        "cwe": [
+          "CWE-122",
+          "CWE-131"
+        ],
+        "nvd_description": "NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_rewrite_module\u00a0module. This vulnerability exists when the rewrite\u00a0directive is followed by a rewrite, if, or set\u00a0directive and an unnamed Perl-Compatible Regular Expression (PCRE) capture (for example, $1, $2) with a replacement string that includes a question mark (?). An unauthenticated attacker along with conditions beyond its control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, attackers can execute code on systems with Address Space Layout Randomization (ASLR) disabled or when the attacker can bypass ASLR.\u00a0 Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.",
+        "cvss": {
+          "version": "3.1",
+          "score": 8.1,
+          "severity": "HIGH",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 8.1,
+        "severity": "HIGH",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
+      },
+      "cwe": [
+        "CWE-122",
+        "CWE-131"
+      ]
+    },
+    {
+      "id": "CVE-2026-42946",
+      "title": "Buffer overread in the ngx_http_scgi_module and ngx_http_uwsgi_module",
+      "severity": "medium",
+      "vulnerable_versions": "0.8.42-1.30.0",
+      "fixed_versions": "1.31.0+, 1.30.1+",
+      "patched": true,
+      "advisory_url": "https://my.f5.com/manage/s/article/K000161027",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2026-42946",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42946",
+        "published": "2026-05-13T16:16:50.340",
+        "lastModified": "2026-10-26T14:10:00.130",
+        "cwe": [
+          "CWE-789"
+        ],
+        "nvd_description": "A vulnerability exists in the ngx_http_scgi_module\u00a0and ngx_http_uwsgi_module\u00a0modules that may result in excessive memory allocation or an over-read of data. When scgi_pass\u00a0or uwsgi_pass\u00a0is configured, an unauthenticated attacker with man-in-the-middle (MITM) ability to control responses from an upstream server may be able to read the memory of the NGINX worker process or restart it.\u00a0 Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.",
+        "cvss": {
+          "version": "3.1",
+          "score": 6.5,
+          "severity": "MEDIUM",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:L"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 6.5,
+        "severity": "MEDIUM",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:L"
+      },
+      "cwe": [
+        "CWE-789"
+      ]
+    },
+    {
+      "id": "CVE-2026-42934",
+      "title": "Buffer overread in the ngx_http_charset_module",
+      "severity": "low",
+      "vulnerable_versions": "0.3.50-1.30.0",
+      "fixed_versions": "1.31.0+, 1.30.1+",
+      "patched": true,
+      "advisory_url": "https://my.f5.com/manage/s/article/K000161028",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2026-42934",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42934",
+        "published": "2026-05-13T16:16:49.910",
+        "lastModified": "2026-10-26T14:10:00.130",
+        "cwe": [
+          "CWE-125"
+        ],
+        "nvd_description": "NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_charset_module module. When charset, source_charset, and charset_map\u00a0and proxy_pass\u00a0with disabled buffering (\"off\") directives are configured, unauthenticated attackers can send requests that with conditions beyond the attackers' control to cause a heap buffer over-read in the NGINX worker process, leading to limited disclosure of memory or a restart.\n\n\n\n\u00a0Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.",
+        "cvss": {
+          "version": "3.1",
+          "score": 4.8,
+          "severity": "MEDIUM",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:L"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 4.8,
+        "severity": "MEDIUM",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:L"
+      },
+      "cwe": [
+        "CWE-125"
+      ]
+    },
+    {
+      "id": "CVE-2026-40460",
+      "title": "HTTP/3 address spoofing",
+      "severity": "medium",
+      "vulnerable_versions": "1.25.0-1.30.0",
+      "fixed_versions": "1.31.0+, 1.30.1+",
+      "patched": true,
+      "advisory_url": "https://my.f5.com/manage/s/article/K000161068",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2026-40460",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40460",
+        "published": "2026-05-13T16:16:42.823",
+        "lastModified": "2026-10-26T17:10:03.270",
+        "cwe": [
+          "CWE-290"
+        ],
+        "nvd_description": "When NGINX Plus or NGINX Open Source are configured to use the HTTP/3 QUIC\u00a0module, an attacker may be able to spoof their source IP address allowing for bypass of authorization or bypass of rate limiting.\u00a0\u00a0Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.",
+        "cvss": {
+          "version": "3.1",
+          "score": 6.5,
+          "severity": "MEDIUM",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:L"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 6.5,
+        "severity": "MEDIUM",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:L"
+      },
+      "cwe": [
+        "CWE-290"
+      ]
+    },
+    {
+      "id": "CVE-2026-40701",
+      "title": "resolver use-after-free in OCSP",
+      "severity": "medium",
+      "vulnerable_versions": "1.19.0-1.30.0",
+      "fixed_versions": "1.31.0+, 1.30.1+",
+      "patched": true,
+      "advisory_url": "https://my.f5.com/manage/s/article/K000161021",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2026-40701",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40701",
+        "published": "2026-05-13T16:16:43.863",
+        "lastModified": "2026-10-26T17:10:03.270",
+        "cwe": [
+          "CWE-416"
+        ],
+        "nvd_description": "NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_ssl_module\u00a0module when the ssl_verify_client\u00a0directive is set to \"on\" or \"optional,\" and the ssl_ocsp\u00a0directive is set to \"on\" or the leaf\u00a0parameters are configured with a resolver. With this configuration, an unauthenticated attacker can send requests along with conditions beyond its control that may cause a heap-use-after-free error in the NGINX worker process. This vulnerability may result in limited modification of data or the NGINX worker process restarting.\n\n\n\n\u00a0Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.",
+        "cvss": {
+          "version": "3.1",
+          "score": 4.8,
+          "severity": "MEDIUM",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:L"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 4.8,
+        "severity": "MEDIUM",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:L"
+      },
+      "cwe": [
+        "CWE-416"
+      ]
+    },
+    {
+      "id": "CVE-2026-27654",
+      "title": "Buffer overflow in ngx_http_dav_module",
+      "severity": "medium",
+      "vulnerable_versions": "0.5.13-1.29.6",
+      "fixed_versions": "1.29.7+, 1.28.3+",
+      "patched": true,
+      "advisory_url": "https://my.f5.com/manage/s/article/K000160382",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2026-27654",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27654",
+        "published": "2026-03-24T15:16:33.130",
+        "lastModified": "2026-07-15T02:19:09.470",
+        "cwe": [
+          "CWE-122",
+          "CWE-120"
+        ],
+        "nvd_description": "NGINX Open Source and NGINX Plus have a vulnerability in the ngx_http_dav_module module that might allow an attacker to trigger a buffer overflow to the NGINX worker process; this vulnerability may result in termination of the NGINX worker process or modification of source or destination file names outside the document root. This issue affects NGINX Open Source and NGINX Plus when the configuration file uses DAV module MOVE or COPY methods, prefix location (nonregular expression location configuration), and alias directives. The integrity impact is constrained because the NGINX worker process user has low privileges and does not have access to the entire system. Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.",
+        "cvss": {
+          "version": "3.1",
+          "score": 8.2,
+          "severity": "HIGH",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:H"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 8.2,
+        "severity": "HIGH",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:H"
+      },
+      "cwe": [
+        "CWE-122",
+        "CWE-120"
+      ]
+    },
+    {
+      "id": "CVE-2026-27784",
+      "title": "Buffer overflow in the ngx_http_mp4_module",
+      "severity": "medium",
+      "vulnerable_versions": "1.1.19-1.29.6",
+      "fixed_versions": "1.29.7+, 1.28.3+",
+      "patched": true,
+      "advisory_url": "https://my.f5.com/manage/s/article/K000160364",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2026-27784",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27784",
+        "published": "2026-03-24T15:16:33.350",
+        "lastModified": "2026-07-15T02:19:10.063",
+        "cwe": [
+          "CWE-190",
+          "CWE-190"
+        ],
+        "nvd_description": "The 32-bit implementation of NGINX Open Source has a vulnerability in the ngx_http_mp4_module module, which might allow an attacker to over-read or over-write NGINX worker memory resulting in its termination, using a specially crafted MP4 file. The issue only affects 32-bit NGINX Open Source if it is built with the ngx_http_mp4_module module and the mp4 directive is used in the configuration file. Additionally, the attack is possible only if an attacker can trigger the processing of a specially crafted MP4 file with the ngx_http_mp4_module module. \n\n\nNote: Software versions which have reached End of Technical Support (EoTS) are not evaluated.",
+        "cvss": {
+          "version": "3.1",
+          "score": 7.8,
+          "severity": "HIGH",
+          "vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 7.8,
+        "severity": "HIGH",
+        "vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+      },
+      "cwe": [
+        "CWE-190",
+        "CWE-190"
+      ]
+    },
+    {
+      "id": "CVE-2026-32647",
+      "title": "Buffer overflow in the ngx_http_mp4_module",
+      "severity": "medium",
+      "vulnerable_versions": "1.1.19-1.29.6",
+      "fixed_versions": "1.29.7+, 1.28.3+",
+      "patched": true,
+      "advisory_url": "https://my.f5.com/manage/s/article/K000160366",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2026-32647",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32647",
+        "published": "2026-03-24T15:16:34.667",
+        "lastModified": "2026-07-15T02:20:00.083",
+        "cwe": [
+          "CWE-125",
+          "CWE-125"
+        ],
+        "nvd_description": "NGINX Open Source and NGINX Plus have a vulnerability in the ngx_http_mp4_module module, which might allow an attacker to trigger a buffer over-read or over-write to the NGINX worker memory resulting in its termination or possibly code execution, using a specially crafted MP4 file. This issue affects NGINX Open Source and NGINX Plus if it is built with the ngx_http_mp4_module module and the mp4 directive is used in the configuration file. Additionally, the attack is possible only if an attacker can trigger the processing of a specially crafted MP4 file with the ngx_http_mp4_module module. \n\n\nNote: Software versions which have reached End of Technical Support (EoTS) are not evaluated.",
+        "cvss": {
+          "version": "3.1",
+          "score": 7.8,
+          "severity": "HIGH",
+          "vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 7.8,
+        "severity": "HIGH",
+        "vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+      },
+      "cwe": [
+        "CWE-125",
+        "CWE-125"
+      ]
+    },
+    {
+      "id": "CVE-2026-27651",
+      "title": "NULL pointer dereference while using CRAM-MD5 or APOP",
+      "severity": "low",
+      "vulnerable_versions": "0.5.15-1.29.6",
+      "fixed_versions": "1.29.7+, 1.28.3+",
+      "patched": true,
+      "advisory_url": "https://my.f5.com/manage/s/article/K000160383",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2026-27651",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27651",
+        "published": "2026-03-24T15:16:32.910",
+        "lastModified": "2026-07-15T02:19:09.153",
+        "cwe": [
+          "CWE-476",
+          "CWE-476"
+        ],
+        "nvd_description": "When the ngx_mail_auth_http_module\u00a0module is enabled on NGINX Plus or NGINX Open Source, undisclosed requests can cause worker processes to terminate. This issue may occur when (1) CRAM-MD5 or APOP authentication is enabled, and (2) the authentication server permits retry by returning the Auth-Wait response header. Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.",
+        "cvss": {
+          "version": "3.1",
+          "score": 7.5,
+          "severity": "HIGH",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 7.5,
+        "severity": "HIGH",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+      },
+      "cwe": [
+        "CWE-476",
+        "CWE-476"
+      ]
+    },
+    {
+      "id": "CVE-2026-28753",
+      "title": "Injection in auth_http and XCLIENT",
+      "severity": "medium",
+      "vulnerable_versions": "0.6.27-1.29.6",
+      "fixed_versions": "1.29.7+, 1.28.3+",
+      "patched": true,
+      "advisory_url": "https://my.f5.com/manage/s/article/K000160367",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2026-28753",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28753",
+        "published": "2026-03-24T15:16:33.560",
+        "lastModified": "2026-06-17T10:28:59.190",
+        "cwe": [
+          "CWE-93"
+        ],
+        "nvd_description": "NGINX Plus and NGINX Open Source have a vulnerability in the ngx_mail_smtp_module module due to the improper handling of CRLF sequences in DNS responses. This allows an attacker-controlled DNS server to inject arbitrary headers into SMTP upstream requests, leading to potential request manipulation. Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.",
+        "cvss": {
+          "version": "3.1",
+          "score": 3.7,
+          "severity": "LOW",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 3.7,
+        "severity": "LOW",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N"
+      },
+      "cwe": [
+        "CWE-93"
+      ]
+    },
+    {
+      "id": "CVE-2026-28755",
+      "title": "OCSP result bypass in stream",
+      "severity": "medium",
+      "vulnerable_versions": "1.27.2-1.29.6",
+      "fixed_versions": "1.29.7+, 1.28.3+",
+      "patched": true,
+      "advisory_url": "https://my.f5.com/manage/s/article/K000160368",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2026-28755",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28755",
+        "published": "2026-03-24T15:16:33.773",
+        "lastModified": "2026-06-17T10:28:59.433",
+        "cwe": [
+          "CWE-863"
+        ],
+        "nvd_description": "NGINX Plus and NGINX Open Source have a vulnerability in the ngx_stream_ssl_module module due to the improper handling of revoked certificates when configured with the ssl_verify_client on and ssl_ocsp on directives, allowing the TLS handshake to succeed even after an OCSP check identifies the certificate as revoked. \u00a0 \n\n\nNote: Software versions which have reached End of Technical Support (EoTS) are not evaluated.",
+        "cvss": {
+          "version": "3.1",
+          "score": 5.4,
+          "severity": "MEDIUM",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 5.4,
+        "severity": "MEDIUM",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N"
+      },
+      "cwe": [
+        "CWE-863"
+      ]
+    },
+    {
+      "id": "CVE-2026-1642",
+      "title": "SSL upstream injection",
+      "severity": "medium",
+      "vulnerable_versions": "1.3.0-1.29.4",
+      "fixed_versions": "1.29.5+, 1.28.2+",
+      "patched": true,
+      "advisory_url": "https://my.f5.com/manage/s/article/K000159824",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2026-1642",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1642",
+        "published": "2026-02-04T15:16:14.190",
+        "lastModified": "2026-06-17T10:16:14.457",
+        "cwe": [
+          "CWE-349",
+          "CWE-345"
+        ],
+        "nvd_description": "A vulnerability exists in NGINX OSS and NGINX Plus when configured to proxy to upstream Transport Layer Security (TLS) servers. An attacker with a man-in-the-middle (MITM) position on the upstream server side\u2014along with conditions beyond the attacker's control\u2014may be able to inject plain text data into the response from an upstream proxied server.\u00a0\u00a0Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.",
+        "cvss": {
+          "version": "3.1",
+          "score": 5.9,
+          "severity": "MEDIUM",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 5.9,
+        "severity": "MEDIUM",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N"
+      },
+      "cwe": [
+        "CWE-349",
+        "CWE-345"
+      ]
+    },
+    {
+      "id": "CVE-2025-53859",
+      "title": "Buffer overread in the ngx_mail_smtp_module",
+      "severity": "low",
+      "vulnerable_versions": "0.7.22-1.29.0",
+      "fixed_versions": "1.29.1+",
+      "patched": true,
+      "advisory_url": "https://my.f5.com/manage/s/article/K000152786",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2025-53859",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2025-53859",
+        "published": "2025-08-13T15:15:37.657",
+        "lastModified": "2026-06-17T09:39:02.413",
+        "cwe": [
+          "CWE-125"
+        ],
+        "nvd_description": "NGINX Open Source and NGINX Plus have a vulnerability in the ngx_mail_smtp_module that might allow an unauthenticated attacker to over-read NGINX SMTP authentication process memory; as a result, the server side may leak arbitrary bytes sent in a request to the authentication server. This issue happens during the NGINX SMTP authentication process and requires the attacker to make preparations against the target system to extract the leaked data. The issue affects NGINX only if (1) it is built with the ngx_mail_smtp_module, (2) the smtp_auth directive is configured with method \"none,\" and (3) the authentication server returns the \"Auth-Wait\" response header.\n\n\n\n\nNote: Software versions which have reached End of Technical Support (EoTS) are not evaluated.",
+        "cvss": {
+          "version": "3.1",
+          "score": 3.7,
+          "severity": "LOW",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 3.7,
+        "severity": "LOW",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "cwe": [
+        "CWE-125"
+      ]
+    },
+    {
+      "id": "CVE-2025-23419",
+      "title": "SSL session reuse vulnerability",
+      "severity": "medium",
+      "vulnerable_versions": "1.11.4-1.27.3",
+      "fixed_versions": "1.27.4+, 1.26.3+",
+      "patched": true,
+      "advisory_url": "https://mailman.nginx.org/pipermail/nginx-announce/2025/NYEUJX7NCBCGJGXDFVXNMAAMJDFSE45G.html",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2025-23419",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2025-23419",
+        "published": "2025-02-05T18:15:33.347",
+        "lastModified": "2026-06-17T08:54:13.083",
+        "cwe": [
+          "CWE-863",
+          "CWE-863"
+        ],
+        "nvd_description": "When multiple server blocks are configured to share the same IP address and port, an attacker can use session resumption to bypass client certificate authentication requirements on these servers. This vulnerability arises when  TLS Session Tickets https://nginx.org/en/docs/http/ngx_http_ssl_module.html#ssl_session_ticket_key  are used and/or the  SSL session cache https://nginx.org/en/docs/http/ngx_http_ssl_module.html#ssl_session_cache  are used in the default server and the default server is performing client certificate authentication.\u00a0\u00a0\n\nNote: Software versions which have reached End of Technical Support (EoTS) are not evaluated.",
+        "cvss": {
+          "version": "3.1",
+          "score": 4.3,
+          "severity": "MEDIUM",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 4.3,
+        "severity": "MEDIUM",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "cwe": [
+        "CWE-863",
+        "CWE-863"
+      ]
+    },
+    {
+      "id": "CVE-2024-7347",
+      "title": "Buffer overread in the ngx_http_mp4_module",
+      "severity": "low",
+      "vulnerable_versions": "1.5.13-1.27.0",
+      "fixed_versions": "1.27.1+, 1.26.2+",
+      "patched": true,
+      "advisory_url": "https://mailman.nginx.org/pipermail/nginx-announce/2024/UUOCLLONPR6244YQYU65PO5LB7JDYCWM.html",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2024-7347",
+      "patch_urls": [
+        "https://nginx.org/download/patch.2024.mp4.txt",
+        "https://nginx.org/download/patch.2024.mp4.txt.asc"
+      ],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2024-7347",
+        "published": "2024-08-14T15:15:31.870",
+        "lastModified": "2026-06-17T08:19:54.837",
+        "cwe": [
+          "CWE-126",
+          "CWE-125"
+        ],
+        "nvd_description": "NGINX Open Source and NGINX Plus have a vulnerability in the ngx_http_mp4_module, which might allow an attacker to over-read NGINX worker memory resulting in its termination, using a specially crafted mp4 file. The issue only affects NGINX if it is built with the ngx_http_mp4_module and the mp4 directive is used in the configuration file. Additionally, the attack is possible only if an attacker can trigger the processing of a specially crafted mp4 file with the ngx_http_mp4_module.\u00a0 Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.",
+        "cvss": {
+          "version": "3.1",
+          "score": 4.7,
+          "severity": "MEDIUM",
+          "vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 4.7,
+        "severity": "MEDIUM",
+        "vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H"
+      },
+      "cwe": [
+        "CWE-126",
+        "CWE-125"
+      ]
+    },
+    {
+      "id": "CVE-2024-32760",
+      "title": "Buffer overwrite in HTTP/3",
+      "severity": "medium",
+      "vulnerable_versions": "1.25.0-1.25.5, 1.26.0",
+      "fixed_versions": "1.27.0+, 1.26.1+",
+      "patched": true,
+      "advisory_url": "https://mailman.nginx.org/pipermail/nginx-announce/2024/GMY32CSHFH6VFTN76HJNX7WNEX4RLHF6.html",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2024-32760",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2024-32760",
+        "published": "2024-05-29T16:15:10.043",
+        "lastModified": "2026-06-17T07:30:22.920",
+        "cwe": [
+          "CWE-787",
+          "CWE-787"
+        ],
+        "nvd_description": "When NGINX Plus or NGINX OSS are configured to use the HTTP/3 QUIC module, undisclosed HTTP/3 encoder instructions can cause NGINX worker processes to terminate or cause or other potential impact.",
+        "cvss": {
+          "version": "3.1",
+          "score": 6.5,
+          "severity": "MEDIUM",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:L"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 6.5,
+        "severity": "MEDIUM",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:L"
+      },
+      "cwe": [
+        "CWE-787",
+        "CWE-787"
+      ]
+    },
+    {
+      "id": "CVE-2024-31079",
+      "title": "Stack overflow and use-after-free in HTTP/3",
+      "severity": "medium",
+      "vulnerable_versions": "1.25.0-1.25.5, 1.26.0",
+      "fixed_versions": "1.27.0+, 1.26.1+",
+      "patched": true,
+      "advisory_url": "https://mailman.nginx.org/pipermail/nginx-announce/2024/GMY32CSHFH6VFTN76HJNX7WNEX4RLHF6.html",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2024-31079",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2024-31079",
+        "published": "2024-05-29T16:15:09.800",
+        "lastModified": "2026-06-17T07:27:45.200",
+        "cwe": [
+          "CWE-121",
+          "CWE-787"
+        ],
+        "nvd_description": "When NGINX Plus or NGINX OSS are configured to use the HTTP/3 QUIC module, undisclosed HTTP/3 requests can cause NGINX worker processes to terminate or cause\u00a0other potential impact. This attack requires that a request be specifically timed during the connection draining process, which the attacker has no visibility and limited influence over.",
+        "cvss": {
+          "version": "3.1",
+          "score": 4.8,
+          "severity": "MEDIUM",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:L"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 4.8,
+        "severity": "MEDIUM",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:L"
+      },
+      "cwe": [
+        "CWE-121",
+        "CWE-787"
+      ]
+    },
+    {
+      "id": "CVE-2024-35200",
+      "title": "NULL pointer dereference in HTTP/3",
+      "severity": "medium",
+      "vulnerable_versions": "1.25.0-1.25.5, 1.26.0",
+      "fixed_versions": "1.27.0+, 1.26.1+",
+      "patched": true,
+      "advisory_url": "https://mailman.nginx.org/pipermail/nginx-announce/2024/GMY32CSHFH6VFTN76HJNX7WNEX4RLHF6.html",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2024-35200",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2024-35200",
+        "published": "2024-05-29T16:15:10.497",
+        "lastModified": "2026-06-17T07:34:31.803",
+        "cwe": [
+          "CWE-476",
+          "CWE-476"
+        ],
+        "nvd_description": "When NGINX Plus or NGINX OSS are configured to use the HTTP/3 QUIC module, undisclosed HTTP/3 requests can cause NGINX worker processes to terminate.",
+        "cvss": {
+          "version": "3.1",
+          "score": 5.3,
+          "severity": "MEDIUM",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 5.3,
+        "severity": "MEDIUM",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+      },
+      "cwe": [
+        "CWE-476",
+        "CWE-476"
+      ]
+    },
+    {
+      "id": "CVE-2024-34161",
+      "title": "Memory disclosure in HTTP/3",
+      "severity": "medium",
+      "vulnerable_versions": "1.25.0-1.25.5, 1.26.0",
+      "fixed_versions": "1.27.0+, 1.26.1+",
+      "patched": true,
+      "advisory_url": "https://mailman.nginx.org/pipermail/nginx-announce/2024/GMY32CSHFH6VFTN76HJNX7WNEX4RLHF6.html",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2024-34161",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2024-34161",
+        "published": "2024-05-29T16:15:10.270",
+        "lastModified": "2026-06-17T07:33:01.003",
+        "cwe": [
+          "CWE-416",
+          "CWE-416"
+        ],
+        "nvd_description": "When NGINX Plus or NGINX OSS are configured to use the HTTP/3 QUIC module and the network infrastructure supports a Maximum Transmission Unit (MTU) of 4096 or greater without fragmentation, undisclosed QUIC packets can cause NGINX worker processes to leak previously freed memory.",
+        "cvss": {
+          "version": "3.1",
+          "score": 5.3,
+          "severity": "MEDIUM",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 5.3,
+        "severity": "MEDIUM",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N"
+      },
+      "cwe": [
+        "CWE-416",
+        "CWE-416"
+      ]
+    },
+    {
+      "id": "CVE-2024-24989",
+      "title": "NULL pointer dereference in HTTP/3",
+      "severity": "major",
+      "vulnerable_versions": "1.25.3",
+      "fixed_versions": "1.25.4+",
+      "patched": true,
+      "advisory_url": "https://mailman.nginx.org/pipermail/nginx-announce/2024/NW6MNW34VZ6HDIHH5YFBIJYZJN7FGNAV.html",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2024-24989",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2024-24989",
+        "published": "2024-02-14T17:15:15.513",
+        "lastModified": "2026-06-17T07:15:20.267",
+        "cwe": [
+          "CWE-476",
+          "CWE-476"
+        ],
+        "nvd_description": "When NGINX Plus or NGINX OSS are configured to use the HTTP/3 QUIC module, undisclosed requests can cause NGINX worker processes to terminate.\n\nNote: The HTTP/3 QUIC module is not enabled by default and is considered experimental. For more information, refer to  Support for QUIC and HTTP/3 https://nginx.org/en/docs/quic.html .\n\n\n\nNOTE: Software versions which have reached End of Technical Support (EoTS) are not evaluated",
+        "cvss": {
+          "version": "3.1",
+          "score": 7.5,
+          "severity": "HIGH",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 7.5,
+        "severity": "HIGH",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+      },
+      "cwe": [
+        "CWE-476",
+        "CWE-476"
+      ]
+    },
+    {
+      "id": "CVE-2024-24990",
+      "title": "Use-after-free in HTTP/3",
+      "severity": "major",
+      "vulnerable_versions": "1.25.0-1.25.3",
+      "fixed_versions": "1.25.4+",
+      "patched": true,
+      "advisory_url": "https://mailman.nginx.org/pipermail/nginx-announce/2024/NW6MNW34VZ6HDIHH5YFBIJYZJN7FGNAV.html",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2024-24990",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2024-24990",
+        "published": "2024-02-14T17:15:15.713",
+        "lastModified": "2026-06-17T07:15:20.393",
+        "cwe": [
+          "CWE-416",
+          "CWE-416"
+        ],
+        "nvd_description": "When NGINX Plus or NGINX OSS are configured to use the HTTP/3 QUIC module, undisclosed requests can cause NGINX worker processes to terminate.\n\nNote: The HTTP/3 QUIC module is not enabled by default and is considered experimental. For more information, refer to  Support for QUIC and HTTP/3 https://nginx.org/en/docs/quic.html .\n\n\n\n \n\n\nNote: Software versions which have reached End of Technical Support (EoTS) are not evaluated",
+        "cvss": {
+          "version": "3.1",
+          "score": 7.5,
+          "severity": "HIGH",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 7.5,
+        "severity": "HIGH",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+      },
+      "cwe": [
+        "CWE-416",
+        "CWE-416"
+      ]
+    },
+    {
+      "id": "CVE-2022-41741",
+      "title": "Memory corruption in the ngx_http_mp4_module",
+      "severity": "medium",
+      "vulnerable_versions": "1.1.3-1.23.1, 1.0.7-1.0.15",
+      "fixed_versions": "1.23.2+, 1.22.1+",
+      "patched": true,
+      "advisory_url": "https://mailman.nginx.org/pipermail/nginx-announce/2022/RBRRON6PYBJJM2XIAPQBFBVLR4Q6IHRA.html",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2022-41741",
+      "patch_urls": [
+        "https://nginx.org/download/patch.2022.mp4.txt",
+        "https://nginx.org/download/patch.2022.mp4.txt.asc"
+      ],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2022-41741",
+        "published": "2022-10-19T22:15:12.647",
+        "lastModified": "2026-06-17T05:03:44.713",
+        "cwe": [
+          "CWE-787",
+          "CWE-787"
+        ],
+        "nvd_description": "NGINX Open Source before versions 1.23.2 and 1.22.1, NGINX Open Source Subscription before versions R2 P1 and R1 P1, and NGINX Plus before versions R27 P1 and R26 P1 have a vulnerability in the module ngx_http_mp4_module that might allow a local attacker to corrupt NGINX worker memory, resulting in its termination or potential other impact using a specially crafted audio or video file. The issue affects only NGINX products that are built with the ngx_http_mp4_module, when the mp4 directive is used in the configuration file. Further, the attack is possible only if an attacker can trigger processing of a specially crafted audio or video file with the module ngx_http_mp4_module.",
+        "cvss": {
+          "version": "3.1",
+          "score": 7.0,
+          "severity": "HIGH",
+          "vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 7.0,
+        "severity": "HIGH",
+        "vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H"
+      },
+      "cwe": [
+        "CWE-787",
+        "CWE-787"
+      ]
+    },
+    {
+      "id": "CVE-2022-41742",
+      "title": "Memory disclosure in the ngx_http_mp4_module",
+      "severity": "medium",
+      "vulnerable_versions": "1.1.3-1.23.1, 1.0.7-1.0.15",
+      "fixed_versions": "1.23.2+, 1.22.1+",
+      "patched": true,
+      "advisory_url": "https://mailman.nginx.org/pipermail/nginx-announce/2022/RBRRON6PYBJJM2XIAPQBFBVLR4Q6IHRA.html",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2022-41742",
+      "patch_urls": [
+        "https://nginx.org/download/patch.2022.mp4.txt",
+        "https://nginx.org/download/patch.2022.mp4.txt.asc"
+      ],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2022-41742",
+        "published": "2022-10-19T22:15:12.717",
+        "lastModified": "2026-06-17T05:03:44.843",
+        "cwe": [
+          "CWE-787",
+          "CWE-787"
+        ],
+        "nvd_description": "NGINX Open Source before versions 1.23.2 and 1.22.1, NGINX Open Source Subscription before versions R2 P1 and R1 P1, and NGINX Plus before versions R27 P1 and R26 P1 have a vulnerability in the module ngx_http_mp4_module that might allow a local attacker to cause a worker process crash, or might result in worker process memory disclosure by using a specially crafted audio or video file. The issue affects only NGINX products that are built with the module ngx_http_mp4_module, when the mp4 directive is used in the configuration file. Further, the attack is possible only if an attacker can trigger processing of a specially crafted audio or video file with the module ngx_http_mp4_module.",
+        "cvss": {
+          "version": "3.1",
+          "score": 7.1,
+          "severity": "HIGH",
+          "vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:H"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 7.1,
+        "severity": "HIGH",
+        "vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:H"
+      },
+      "cwe": [
+        "CWE-787",
+        "CWE-787"
+      ]
+    },
+    {
+      "id": "CVE-2021-23017",
+      "title": "1-byte memory overwrite in resolver",
+      "severity": "medium",
+      "vulnerable_versions": "0.6.18-1.20.0",
+      "fixed_versions": "1.21.0+, 1.20.1+",
+      "patched": true,
+      "advisory_url": "https://mailman.nginx.org/pipermail/nginx-announce/2021/000300.html",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2021-23017",
+      "patch_urls": [
+        "https://nginx.org/download/patch.2021.resolver.txt",
+        "https://nginx.org/download/patch.2021.resolver.txt.asc"
+      ],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2021-23017",
+        "published": "2021-06-01T13:15:07.853",
+        "lastModified": "2026-06-17T03:38:13.130",
+        "cwe": [
+          "CWE-193",
+          "CWE-193"
+        ],
+        "nvd_description": "A security issue in nginx resolver was identified, which might allow an attacker who is able to forge UDP packets from the DNS server to cause 1-byte memory overwrite, resulting in worker process crash or potential other impact.",
+        "cvss": {
+          "version": "3.1",
+          "score": 7.7,
+          "severity": "HIGH",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:L"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 7.7,
+        "severity": "HIGH",
+        "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:L"
+      },
+      "cwe": [
+        "CWE-193",
+        "CWE-193"
+      ]
+    },
+    {
+      "id": "CVE-2019-9511",
+      "title": "Excessive CPU usage in HTTP/2 with small window updates",
+      "severity": "medium",
+      "vulnerable_versions": "1.9.5-1.17.2",
+      "fixed_versions": "1.17.3+, 1.16.1+",
+      "patched": true,
+      "advisory_url": "https://mailman.nginx.org/pipermail/nginx-announce/2019/000249.html",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2019-9511",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2019-9511",
+        "published": "2019-08-13T21:15:12.223",
+        "lastModified": "2026-06-17T02:43:51.330",
+        "cwe": [
+          "CWE-400",
+          "CWE-770"
+        ],
+        "nvd_description": "Some HTTP/2 implementations are vulnerable to window size manipulation and stream prioritization manipulation, potentially leading to a denial of service. The attacker requests a large amount of data from a specified resource over multiple streams. They manipulate window size and stream priority to force the server to queue the data in 1-byte chunks. Depending on how efficiently this data is queued, this can consume excess CPU, memory, or both.",
+        "cvss": {
+          "version": "3.1",
+          "score": 7.5,
+          "severity": "HIGH",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 7.5,
+        "severity": "HIGH",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+      },
+      "cwe": [
+        "CWE-400",
+        "CWE-770"
+      ]
+    },
+    {
+      "id": "CVE-2019-9513",
+      "title": "Excessive CPU usage in HTTP/2 with priority changes",
+      "severity": "low",
+      "vulnerable_versions": "1.9.5-1.17.2",
+      "fixed_versions": "1.17.3+, 1.16.1+",
+      "patched": true,
+      "advisory_url": "https://mailman.nginx.org/pipermail/nginx-announce/2019/000249.html",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2019-9513",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2019-9513",
+        "published": "2019-08-13T21:15:12.380",
+        "lastModified": "2026-06-17T02:43:52.087",
+        "cwe": [
+          "CWE-400",
+          "NVD-CWE-Other"
+        ],
+        "nvd_description": "Some HTTP/2 implementations are vulnerable to resource loops, potentially leading to a denial of service. The attacker creates multiple request streams and continually shuffles the priority of the streams in a way that causes substantial churn to the priority tree. This can consume excess CPU.",
+        "cvss": {
+          "version": "3.1",
+          "score": 7.5,
+          "severity": "HIGH",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 7.5,
+        "severity": "HIGH",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+      },
+      "cwe": [
+        "CWE-400",
+        "NVD-CWE-Other"
+      ]
+    },
+    {
+      "id": "CVE-2019-9516",
+      "title": "Excessive memory usage in HTTP/2 with zero length headers",
+      "severity": "low",
+      "vulnerable_versions": "1.9.5-1.17.2",
+      "fixed_versions": "1.17.3+, 1.16.1+",
+      "patched": true,
+      "advisory_url": "https://mailman.nginx.org/pipermail/nginx-announce/2019/000249.html",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2019-9516",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2019-9516",
+        "published": "2019-08-13T21:15:12.583",
+        "lastModified": "2026-06-17T02:43:53.023",
+        "cwe": [
+          "CWE-400",
+          "CWE-770"
+        ],
+        "nvd_description": "Some HTTP/2 implementations are vulnerable to a header leak, potentially leading to a denial of service. The attacker sends a stream of headers with a 0-length header name and 0-length header value, optionally Huffman encoded into 1-byte or greater headers. Some implementations allocate memory for these headers and keep the allocation alive until the session dies. This can consume excess memory.",
+        "cvss": {
+          "version": "3.1",
+          "score": 6.5,
+          "severity": "MEDIUM",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 6.5,
+        "severity": "MEDIUM",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+      },
+      "cwe": [
+        "CWE-400",
+        "CWE-770"
+      ]
+    },
+    {
+      "id": "CVE-2018-16843",
+      "title": "Excessive memory usage in HTTP/2",
+      "severity": "low",
+      "vulnerable_versions": "1.9.5-1.15.5",
+      "fixed_versions": "1.15.6+, 1.14.1+",
+      "patched": true,
+      "advisory_url": "https://mailman.nginx.org/pipermail/nginx-announce/2018/000220.html",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2018-16843",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2018-16843",
+        "published": "2018-11-07T14:29:00.777",
+        "lastModified": "2026-06-17T01:44:53.387",
+        "cwe": [
+          "CWE-400",
+          "CWE-400"
+        ],
+        "nvd_description": "nginx before versions 1.15.6 and 1.14.1 has a vulnerability in the implementation of HTTP/2 that can allow for excessive memory consumption. This issue affects nginx compiled with the ngx_http_v2_module (not compiled by default) if the 'http2' option of the 'listen' directive is used in a configuration file.",
+        "cvss": {
+          "version": "3.1",
+          "score": 7.5,
+          "severity": "HIGH",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 7.5,
+        "severity": "HIGH",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+      },
+      "cwe": [
+        "CWE-400",
+        "CWE-400"
+      ]
+    },
+    {
+      "id": "CVE-2018-16844",
+      "title": "Excessive CPU usage in HTTP/2",
+      "severity": "low",
+      "vulnerable_versions": "1.9.5-1.15.5",
+      "fixed_versions": "1.15.6+, 1.14.1+",
+      "patched": true,
+      "advisory_url": "https://mailman.nginx.org/pipermail/nginx-announce/2018/000220.html",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2018-16844",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2018-16844",
+        "published": "2018-11-07T14:29:00.837",
+        "lastModified": "2026-06-17T01:44:53.563",
+        "cwe": [
+          "CWE-400",
+          "CWE-400"
+        ],
+        "nvd_description": "nginx before versions 1.15.6 and 1.14.1 has a vulnerability in the implementation of HTTP/2 that can allow for excessive CPU usage. This issue affects nginx compiled with the ngx_http_v2_module (not compiled by default) if the 'http2' option of the 'listen' directive is used in a configuration file.",
+        "cvss": {
+          "version": "3.1",
+          "score": 7.5,
+          "severity": "HIGH",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 7.5,
+        "severity": "HIGH",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+      },
+      "cwe": [
+        "CWE-400",
+        "CWE-400"
+      ]
+    },
+    {
+      "id": "CVE-2018-16845",
+      "title": "Memory disclosure in the ngx_http_mp4_module",
+      "severity": "medium",
+      "vulnerable_versions": "1.1.3-1.15.5, 1.0.7-1.0.15",
+      "fixed_versions": "1.15.6+, 1.14.1+",
+      "patched": true,
+      "advisory_url": "https://mailman.nginx.org/pipermail/nginx-announce/2018/000221.html",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2018-16845",
+      "patch_urls": [
+        "https://nginx.org/download/patch.2018.mp4.txt",
+        "https://nginx.org/download/patch.2018.mp4.txt.asc"
+      ],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2018-16845",
+        "published": "2018-11-07T14:29:00.883",
+        "lastModified": "2026-06-17T01:44:53.720",
+        "cwe": [
+          "CWE-400",
+          "CWE-835"
+        ],
+        "nvd_description": "nginx before versions 1.15.6, 1.14.1 has a vulnerability in the ngx_http_mp4_module, which might allow an attacker to cause infinite loop in a worker process, cause a worker process crash, or might result in worker process memory disclosure by using a specially crafted mp4 file. The issue only affects nginx if it is built with the ngx_http_mp4_module (the module is not built by default) and the .mp4. directive is used in the configuration file. Further, the attack is only possible if an attacker is able to trigger processing of a specially crafted mp4 file with the ngx_http_mp4_module.",
+        "cvss": {
+          "version": "3.1",
+          "score": 6.1,
+          "severity": "MEDIUM",
+          "vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:H"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 6.1,
+        "severity": "MEDIUM",
+        "vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:H"
+      },
+      "cwe": [
+        "CWE-400",
+        "CWE-835"
+      ]
+    },
+    {
+      "id": "CVE-2017-7529",
+      "title": "Integer overflow in the range filter",
+      "severity": "medium",
+      "vulnerable_versions": "0.5.6-1.13.2",
+      "fixed_versions": "1.13.3+, 1.12.1+",
+      "patched": true,
+      "advisory_url": "https://mailman.nginx.org/pipermail/nginx-announce/2017/000200.html",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2017-7529",
+      "patch_urls": [
+        "https://nginx.org/download/patch.2017.ranges.txt",
+        "https://nginx.org/download/patch.2017.ranges.txt.asc"
+      ],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2017-7529",
+        "published": "2017-07-13T13:29:00.220",
+        "lastModified": "2026-06-17T01:24:32.470",
+        "cwe": [
+          "CWE-190",
+          "CWE-190"
+        ],
+        "nvd_description": "Nginx versions since 0.5.6 up to and including 1.13.2 are vulnerable to integer overflow vulnerability in nginx range filter module resulting into leak of potentially sensitive information triggered by specially crafted request.",
+        "cvss": {
+          "version": "3.1",
+          "score": 7.5,
+          "severity": "HIGH",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 7.5,
+        "severity": "HIGH",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
+      },
+      "cwe": [
+        "CWE-190",
+        "CWE-190"
+      ]
+    },
+    {
+      "id": "CVE-2016-4450",
+      "title": "NULL pointer dereference while writing client request body",
+      "severity": "medium",
+      "vulnerable_versions": "1.3.9-1.11.0",
+      "fixed_versions": "1.11.1+, 1.10.1+",
+      "patched": true,
+      "advisory_url": "https://mailman.nginx.org/pipermail/nginx-announce/2016/000179.html",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2016-4450",
+      "patch_urls": [
+        "https://nginx.org/download/patch.2016.write.txt",
+        "https://nginx.org/download/patch.2016.write.txt.asc",
+        "https://nginx.org/download/patch.2016.write2.txt",
+        "https://nginx.org/download/patch.2016.write2.txt.asc"
+      ],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2016-4450",
+        "published": "2016-06-07T14:06:14.200",
+        "lastModified": "2026-06-17T00:47:35.047",
+        "cwe": [
+          "CWE-476"
+        ],
+        "nvd_description": "os/unix/ngx_files.c in nginx before 1.10.1 and 1.11.x before 1.11.1 allows remote attackers to cause a denial of service (NULL pointer dereference and worker process crash) via a crafted request, involving writing a client request body to a temporary file.",
+        "cvss": {
+          "version": "3.1",
+          "score": 7.5,
+          "severity": "HIGH",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 7.5,
+        "severity": "HIGH",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+      },
+      "cwe": [
+        "CWE-476"
+      ]
+    },
+    {
+      "id": "CVE-2016-0742",
+      "title": "Invalid pointer dereference in resolver",
+      "severity": "medium",
+      "vulnerable_versions": "0.6.18-1.9.9",
+      "fixed_versions": "1.9.10+, 1.8.1+",
+      "patched": true,
+      "advisory_url": "https://mailman.nginx.org/pipermail/nginx-announce/2016/000169.html",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2016-0742",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2016-0742",
+        "published": "2016-02-15T19:59:00.107",
+        "lastModified": "2026-06-17T00:38:08.170",
+        "cwe": [
+          "CWE-476"
+        ],
+        "nvd_description": "The resolver in nginx before 1.8.1 and 1.9.x before 1.9.10 allows remote attackers to cause a denial of service (invalid pointer dereference and worker process crash) via a crafted UDP DNS response.",
+        "cvss": {
+          "version": "3.1",
+          "score": 7.5,
+          "severity": "HIGH",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 7.5,
+        "severity": "HIGH",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+      },
+      "cwe": [
+        "CWE-476"
+      ]
+    },
+    {
+      "id": "CVE-2016-0746",
+      "title": "Use-after-free during CNAME response processing in resolver",
+      "severity": "medium",
+      "vulnerable_versions": "0.6.18-1.9.9",
+      "fixed_versions": "1.9.10+, 1.8.1+",
+      "patched": true,
+      "advisory_url": "https://mailman.nginx.org/pipermail/nginx-announce/2016/000169.html",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2016-0746",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2016-0746",
+        "published": "2016-02-15T19:59:01.157",
+        "lastModified": "2026-06-17T00:38:08.360",
+        "cwe": [
+          "CWE-416"
+        ],
+        "nvd_description": "Use-after-free vulnerability in the resolver in nginx 0.6.18 through 1.8.0 and 1.9.x before 1.9.10 allows remote attackers to cause a denial of service (worker process crash) or possibly have unspecified other impact via a crafted DNS response related to CNAME response processing.",
+        "cvss": {
+          "version": "3.1",
+          "score": 9.8,
+          "severity": "CRITICAL",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 9.8,
+        "severity": "CRITICAL",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+      },
+      "cwe": [
+        "CWE-416"
+      ]
+    },
+    {
+      "id": "CVE-2016-0747",
+      "title": "Insufficient limits of CNAME resolution in resolver",
+      "severity": "medium",
+      "vulnerable_versions": "0.6.18-1.9.9",
+      "fixed_versions": "1.9.10+, 1.8.1+",
+      "patched": true,
+      "advisory_url": "https://mailman.nginx.org/pipermail/nginx-announce/2016/000169.html",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2016-0747",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2016-0747",
+        "published": "2016-02-15T19:59:02.123",
+        "lastModified": "2026-06-17T00:38:08.503",
+        "cwe": [
+          "CWE-400"
+        ],
+        "nvd_description": "The resolver in nginx before 1.8.1 and 1.9.x before 1.9.10 does not properly limit CNAME resolution, which allows remote attackers to cause a denial of service (worker process resource consumption) via vectors related to arbitrary name resolution.",
+        "cvss": {
+          "version": "3.1",
+          "score": 5.3,
+          "severity": "MEDIUM",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 5.3,
+        "severity": "MEDIUM",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+      },
+      "cwe": [
+        "CWE-400"
+      ]
+    },
+    {
+      "id": "CVE-2014-3616",
+      "title": "SSL session reuse vulnerability",
+      "severity": "medium",
+      "vulnerable_versions": "0.5.6-1.7.4",
+      "fixed_versions": "1.7.5+, 1.6.2+",
+      "patched": true,
+      "advisory_url": "https://mailman.nginx.org/pipermail/nginx-announce/2014/000147.html",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2014-3616",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2014-3616",
+        "published": "2014-12-08T11:59:03.390",
+        "lastModified": "2026-06-17T00:08:37.557",
+        "cwe": [
+          "CWE-613"
+        ],
+        "nvd_description": "nginx 0.5.6 through 1.7.4, when using the same shared ssl_session_cache or ssl_session_ticket_key for multiple servers, can reuse a cached SSL session for an unrelated context, which allows remote attackers with certain privileges to conduct \"virtual host confusion\" attacks.",
+        "cvss": {
+          "version": "2.0",
+          "score": 4.3,
+          "severity": "MEDIUM",
+          "vector": "AV:N/AC:M/Au:N/C:N/I:P/A:N"
+        }
+      },
+      "cvss": {
+        "version": "2.0",
+        "score": 4.3,
+        "severity": "MEDIUM",
+        "vector": "AV:N/AC:M/Au:N/C:N/I:P/A:N"
+      },
+      "cwe": [
+        "CWE-613"
+      ]
+    },
+    {
+      "id": "CVE-2014-3556",
+      "title": "STARTTLS command injection",
+      "severity": "medium",
+      "vulnerable_versions": "1.5.6-1.7.3",
+      "fixed_versions": "1.7.4+, 1.6.1+",
+      "patched": true,
+      "advisory_url": "https://mailman.nginx.org/pipermail/nginx-announce/2014/000144.html",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2014-3556",
+      "patch_urls": [
+        "https://nginx.org/download/patch.2014.starttls.txt",
+        "https://nginx.org/download/patch.2014.starttls.txt.asc"
+      ],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2014-3556",
+        "published": "2014-12-29T20:59:03.943",
+        "lastModified": "2026-06-17T00:08:28.650",
+        "cwe": [
+          "CWE-77"
+        ],
+        "nvd_description": "The STARTTLS implementation in mail/ngx_mail_smtp_handler.c in the SMTP proxy in nginx 1.5.x and 1.6.x before 1.6.1 and 1.7.x before 1.7.4 does not properly restrict I/O buffering, which allows man-in-the-middle attackers to insert commands into encrypted SMTP sessions by sending a cleartext command that is processed after TLS is in place, related to a \"plaintext command injection\" attack, a similar issue to CVE-2011-0411.",
+        "cvss": {
+          "version": "2.0",
+          "score": 6.8,
+          "severity": "MEDIUM",
+          "vector": "AV:N/AC:M/Au:N/C:P/I:P/A:P"
+        }
+      },
+      "cvss": {
+        "version": "2.0",
+        "score": 6.8,
+        "severity": "MEDIUM",
+        "vector": "AV:N/AC:M/Au:N/C:P/I:P/A:P"
+      },
+      "cwe": [
+        "CWE-77"
+      ]
+    },
+    {
+      "id": "CVE-2014-0133",
+      "title": "SPDY heap buffer overflow",
+      "severity": "major",
+      "vulnerable_versions": "1.3.15-1.5.11",
+      "fixed_versions": "1.5.12+, 1.4.7+",
+      "patched": true,
+      "advisory_url": "https://mailman.nginx.org/pipermail/nginx-announce/2014/000135.html",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2014-0133",
+      "patch_urls": [
+        "https://nginx.org/download/patch.2014.spdy2.txt",
+        "https://nginx.org/download/patch.2014.spdy2.txt.asc"
+      ],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2014-0133",
+        "published": "2014-03-28T15:55:08.607",
+        "lastModified": "2026-06-17T00:02:21.513",
+        "cwe": [
+          "CWE-787"
+        ],
+        "nvd_description": "Heap-based buffer overflow in the SPDY implementation in nginx 1.3.15 before 1.4.7 and 1.5.x before 1.5.12 allows remote attackers to execute arbitrary code via a crafted request.",
+        "cvss": {
+          "version": "2.0",
+          "score": 7.5,
+          "severity": "HIGH",
+          "vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P"
+        }
+      },
+      "cvss": {
+        "version": "2.0",
+        "score": 7.5,
+        "severity": "HIGH",
+        "vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P"
+      },
+      "cwe": [
+        "CWE-787"
+      ]
+    },
+    {
+      "id": "CVE-2014-0088",
+      "title": "SPDY memory corruption",
+      "severity": "major",
+      "vulnerable_versions": "1.5.10",
+      "fixed_versions": "1.5.11+",
+      "patched": true,
+      "advisory_url": "https://mailman.nginx.org/pipermail/nginx-announce/2014/000132.html",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2014-0088",
+      "patch_urls": [
+        "https://nginx.org/download/patch.2014.spdy.txt",
+        "https://nginx.org/download/patch.2014.spdy.txt.asc"
+      ],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2014-0088",
+        "published": "2014-04-29T14:38:49.920",
+        "lastModified": "2026-06-17T00:02:14.300",
+        "cwe": [
+          "CWE-119"
+        ],
+        "nvd_description": "The SPDY implementation in the ngx_http_spdy_module module in nginx 1.5.10 before 1.5.11, when running on a 32-bit platform, allows remote attackers to execute arbitrary code via a crafted request.",
+        "cvss": {
+          "version": "2.0",
+          "score": 7.5,
+          "severity": "HIGH",
+          "vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P"
+        }
+      },
+      "cvss": {
+        "version": "2.0",
+        "score": 7.5,
+        "severity": "HIGH",
+        "vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P"
+      },
+      "cwe": [
+        "CWE-119"
+      ]
+    },
+    {
+      "id": "CVE-2013-4547",
+      "title": "Request line parsing vulnerability",
+      "severity": "medium",
+      "vulnerable_versions": "0.8.41-1.5.6",
+      "fixed_versions": "1.5.7+, 1.4.4+",
+      "patched": true,
+      "advisory_url": "https://mailman.nginx.org/pipermail/nginx-announce/2013/000125.html",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2013-4547",
+      "patch_urls": [
+        "https://nginx.org/download/patch.2013.space.txt",
+        "https://nginx.org/download/patch.2013.space.txt.asc"
+      ],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2013-4547",
+        "published": "2013-11-23T18:55:04.687",
+        "lastModified": "2026-06-16T23:57:25.787",
+        "cwe": [
+          "CWE-116"
+        ],
+        "nvd_description": "nginx 0.8.41 through 1.4.3 and 1.5.x before 1.5.7 allows remote attackers to bypass intended restrictions via an unescaped space character in a URI.",
+        "cvss": {
+          "version": "2.0",
+          "score": 7.5,
+          "severity": "HIGH",
+          "vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P"
+        }
+      },
+      "cvss": {
+        "version": "2.0",
+        "score": 7.5,
+        "severity": "HIGH",
+        "vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P"
+      },
+      "cwe": [
+        "CWE-116"
+      ]
+    },
+    {
+      "id": "CVE-2013-2070",
+      "title": "Memory disclosure with specially crafted HTTP backend responses",
+      "severity": "medium",
+      "vulnerable_versions": "1.1.4-1.2.8, 1.3.9-1.4.0",
+      "fixed_versions": "1.5.0+, 1.4.1+, 1.2.9+",
+      "patched": true,
+      "advisory_url": "https://mailman.nginx.org/pipermail/nginx-announce/2013/000114.html",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2013-2070",
+      "patch_urls": [
+        "https://nginx.org/download/patch.2013.chunked.txt",
+        "https://nginx.org/download/patch.2013.chunked.txt.asc",
+        "https://nginx.org/download/patch.2013.proxy.txt",
+        "https://nginx.org/download/patch.2013.proxy.txt.asc"
+      ],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2013-2070",
+        "published": "2013-07-20T03:37:25.247",
+        "lastModified": "2026-06-16T23:52:41.597",
+        "cwe": [
+          "NVD-CWE-noinfo"
+        ],
+        "nvd_description": "http/modules/ngx_http_proxy_module.c in nginx 1.1.4 through 1.2.8 and 1.3.0 through 1.4.0, when proxy_pass is used with untrusted HTTP servers, allows remote attackers to cause a denial of service (crash) and obtain sensitive information from worker process memory via a crafted proxy response, a similar vulnerability to CVE-2013-2028.",
+        "cvss": {
+          "version": "2.0",
+          "score": 5.8,
+          "severity": "MEDIUM",
+          "vector": "AV:N/AC:M/Au:N/C:P/I:N/A:P"
+        }
+      },
+      "cvss": {
+        "version": "2.0",
+        "score": 5.8,
+        "severity": "MEDIUM",
+        "vector": "AV:N/AC:M/Au:N/C:P/I:N/A:P"
+      },
+      "cwe": [
+        "NVD-CWE-noinfo"
+      ]
+    },
+    {
+      "id": "CVE-2013-2028",
+      "title": "Stack-based buffer overflow with specially crafted request",
+      "severity": "major",
+      "vulnerable_versions": "1.3.9-1.4.0",
+      "fixed_versions": "1.5.0+, 1.4.1+",
+      "patched": true,
+      "advisory_url": "https://mailman.nginx.org/pipermail/nginx-announce/2013/000112.html",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2013-2028",
+      "patch_urls": [
+        "https://nginx.org/download/patch.2013.chunked.txt",
+        "https://nginx.org/download/patch.2013.chunked.txt.asc"
+      ],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2013-2028",
+        "published": "2013-07-20T03:37:20.730",
+        "lastModified": "2026-06-16T23:52:36.810",
+        "cwe": [
+          "CWE-787"
+        ],
+        "nvd_description": "The ngx_http_parse_chunked function in http/ngx_http_parse.c in nginx 1.3.9 through 1.4.0 allows remote attackers to cause a denial of service (crash) and execute arbitrary code via a chunked Transfer-Encoding request with a large chunk size, which triggers an integer signedness error and a stack-based buffer overflow.",
+        "cvss": {
+          "version": "2.0",
+          "score": 7.5,
+          "severity": "HIGH",
+          "vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P"
+        }
+      },
+      "cvss": {
+        "version": "2.0",
+        "score": 7.5,
+        "severity": "HIGH",
+        "vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P"
+      },
+      "cwe": [
+        "CWE-787"
+      ]
+    },
+    {
+      "id": "CVE-2011-4963",
+      "title": "Vulnerabilities with Windows directory aliases",
+      "severity": "medium",
+      "vulnerable_versions": "nginx/Windows 0.7.52-1.3.0",
+      "fixed_versions": "1.3.1+, 1.2.1+",
+      "patched": true,
+      "advisory_url": "https://mailman.nginx.org/pipermail/nginx-announce/2012/000086.html",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2011-4963",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2011-4963",
+        "published": "2012-07-26T19:55:00.980",
+        "lastModified": "2026-06-16T23:35:44.060",
+        "cwe": [
+          "NVD-CWE-noinfo"
+        ],
+        "nvd_description": "nginx/Windows 1.3.x before 1.3.1 and 1.2.x before 1.2.1 allows remote attackers to bypass intended access restrictions and access restricted files via (1) a trailing . (dot) or (2) certain \"$index_allocation\" sequences in a request.",
+        "cvss": {
+          "version": "2.0",
+          "score": 5.0,
+          "severity": "MEDIUM",
+          "vector": "AV:N/AC:L/Au:N/C:P/I:N/A:N"
+        }
+      },
+      "cvss": {
+        "version": "2.0",
+        "score": 5.0,
+        "severity": "MEDIUM",
+        "vector": "AV:N/AC:L/Au:N/C:P/I:N/A:N"
+      },
+      "cwe": [
+        "NVD-CWE-noinfo"
+      ]
+    },
+    {
+      "id": "CVE-2012-2089",
+      "title": "Buffer overflow in the ngx_http_mp4_module",
+      "severity": "major",
+      "vulnerable_versions": "1.1.3-1.1.18, 1.0.7-1.0.14",
+      "fixed_versions": "1.1.19+, 1.0.15+",
+      "patched": true,
+      "advisory_url": "https://mailman.nginx.org/pipermail/nginx-announce/2012/000080.html",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2012-2089",
+      "patch_urls": [
+        "https://nginx.org/download/patch.2012.mp4.txt",
+        "https://nginx.org/download/patch.2012.mp4.txt.asc"
+      ],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2012-2089",
+        "published": "2012-04-17T21:55:01.353",
+        "lastModified": "2026-06-16T23:40:58.080",
+        "cwe": [
+          "CWE-120"
+        ],
+        "nvd_description": "Buffer overflow in ngx_http_mp4_module.c in the ngx_http_mp4_module module in nginx 1.0.7 through 1.0.14 and 1.1.3 through 1.1.18, when the mp4 directive is used, allows remote attackers to cause a denial of service (memory overwrite) or possibly execute arbitrary code via a crafted MP4 file.",
+        "cvss": {
+          "version": "2.0",
+          "score": 6.8,
+          "severity": "MEDIUM",
+          "vector": "AV:N/AC:M/Au:N/C:P/I:P/A:P"
+        }
+      },
+      "cvss": {
+        "version": "2.0",
+        "score": 6.8,
+        "severity": "MEDIUM",
+        "vector": "AV:N/AC:M/Au:N/C:P/I:P/A:P"
+      },
+      "cwe": [
+        "CWE-120"
+      ]
+    },
+    {
+      "id": "CVE-2012-1180",
+      "title": "Memory disclosure with specially crafted backend responses",
+      "severity": "major",
+      "vulnerable_versions": "0.1.0-1.1.16",
+      "fixed_versions": "1.1.17+, 1.0.14+",
+      "patched": true,
+      "advisory_url": "https://mailman.nginx.org/pipermail/nginx-announce/2012/000076.html",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2012-1180",
+      "patch_urls": [
+        "https://nginx.org/download/patch.2012.memory.txt",
+        "https://nginx.org/download/patch.2012.memory.txt.asc"
+      ],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2012-1180",
+        "published": "2012-04-17T21:55:01.227",
+        "lastModified": "2026-06-16T23:39:11.980",
+        "cwe": [
+          "CWE-416"
+        ],
+        "nvd_description": "Use-after-free vulnerability in nginx before 1.0.14 and 1.1.x before 1.1.17 allows remote HTTP servers to obtain sensitive information from process memory via a crafted backend response, in conjunction with a client request.",
+        "cvss": {
+          "version": "2.0",
+          "score": 5.0,
+          "severity": "MEDIUM",
+          "vector": "AV:N/AC:L/Au:N/C:P/I:N/A:N"
+        }
+      },
+      "cvss": {
+        "version": "2.0",
+        "score": 5.0,
+        "severity": "MEDIUM",
+        "vector": "AV:N/AC:L/Au:N/C:P/I:N/A:N"
+      },
+      "cwe": [
+        "CWE-416"
+      ]
+    },
+    {
+      "id": "CVE-2011-4315",
+      "title": "Buffer overflow in resolver",
+      "severity": "medium",
+      "vulnerable_versions": "0.6.18-1.1.7",
+      "fixed_versions": "1.1.8+, 1.0.10+",
+      "patched": true,
+      "advisory_url": "https://www.cve.org/CVERecord?id=CVE-2011-4315",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2011-4315",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2011-4315",
+        "published": "2011-12-08T20:55:01.000",
+        "lastModified": "2026-06-16T23:34:45.480",
+        "cwe": [
+          "CWE-787"
+        ],
+        "nvd_description": "Heap-based buffer overflow in compression-pointer processing in core/ngx_resolver.c in nginx before 1.0.10 allows remote resolvers to cause a denial of service (daemon crash) or possibly have unspecified other impact via a long response.",
+        "cvss": {
+          "version": "2.0",
+          "score": 6.8,
+          "severity": "MEDIUM",
+          "vector": "AV:N/AC:M/Au:N/C:P/I:P/A:P"
+        }
+      },
+      "cvss": {
+        "version": "2.0",
+        "score": 6.8,
+        "severity": "MEDIUM",
+        "vector": "AV:N/AC:M/Au:N/C:P/I:P/A:P"
+      },
+      "cwe": [
+        "CWE-787"
+      ]
+    },
+    {
+      "id": "CVE-2010-2266",
+      "title": "Vulnerabilities with invalid UTF-8 sequence on Windows",
+      "severity": "major",
+      "vulnerable_versions": "nginx/Windows 0.7.52-0.8.40",
+      "fixed_versions": "0.8.41+, 0.7.67+",
+      "patched": true,
+      "advisory_url": "https://www.cve.org/CVERecord?id=CVE-2010-2266",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2010-2266",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2010-2266",
+        "published": "2010-06-15T14:04:24.420",
+        "lastModified": "2026-06-16T23:20:25.480",
+        "cwe": [
+          "CWE-22"
+        ],
+        "nvd_description": "nginx 0.8.36 allows remote attackers to cause a denial of service (crash) via certain encoded directory traversal sequences that trigger memory corruption, as demonstrated using the \"%c0.%c0.\" sequence.",
+        "cvss": {
+          "version": "2.0",
+          "score": 5.0,
+          "severity": "MEDIUM",
+          "vector": "AV:N/AC:L/Au:N/C:N/I:N/A:P"
+        }
+      },
+      "cvss": {
+        "version": "2.0",
+        "score": 5.0,
+        "severity": "MEDIUM",
+        "vector": "AV:N/AC:L/Au:N/C:N/I:N/A:P"
+      },
+      "cwe": [
+        "CWE-22"
+      ]
+    },
+    {
+      "id": "CVE-2010-2263",
+      "title": "Vulnerabilities with Windows file default stream",
+      "severity": "major",
+      "vulnerable_versions": "nginx/Windows 0.7.52-0.8.39",
+      "fixed_versions": "0.8.40+, 0.7.66+",
+      "patched": true,
+      "advisory_url": "https://www.cve.org/CVERecord?id=CVE-2010-2263",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2010-2263",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2010-2263",
+        "published": "2010-06-15T14:04:24.313",
+        "lastModified": "2026-06-16T23:20:25.030",
+        "cwe": [
+          "CWE-200"
+        ],
+        "nvd_description": "nginx 0.8 before 0.8.40 and 0.7 before 0.7.66, when running on Windows, allows remote attackers to obtain source code or unparsed content of arbitrary files under the web document root by appending ::$DATA to the URI.",
+        "cvss": {
+          "version": "2.0",
+          "score": 5.0,
+          "severity": "MEDIUM",
+          "vector": "AV:N/AC:L/Au:N/C:P/I:N/A:N"
+        }
+      },
+      "cvss": {
+        "version": "2.0",
+        "score": 5.0,
+        "severity": "MEDIUM",
+        "vector": "AV:N/AC:L/Au:N/C:P/I:N/A:N"
+      },
+      "cwe": [
+        "CWE-200"
+      ]
+    },
+    {
+      "id": "CORE-2010-0121",
+      "title": "Vulnerabilities with Windows 8.3 filename pseudonyms",
+      "severity": "major",
+      "vulnerable_versions": "nginx/Windows 0.7.52-0.8.32",
+      "fixed_versions": "0.8.33+, 0.7.65+",
+      "patched": true,
+      "advisory_url": "http://www.coresecurity.com/content/filename-pseudonyms-vulnerabilities",
+      "cve_url": null,
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": null,
+      "cvss": null,
+      "cwe": []
+    },
+    {
+      "id": "CVE-2009-4487",
+      "title": "An error log data are not sanitized",
+      "severity": "none",
+      "vulnerable_versions": "all",
+      "fixed_versions": "none",
+      "patched": false,
+      "advisory_url": "https://www.cve.org/CVERecord?id=CVE-2009-4487",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2009-4487",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2009-4487",
+        "published": "2010-01-13T20:30:00.357",
+        "lastModified": "2026-06-16T23:13:45.543",
+        "cwe": [
+          "NVD-CWE-noinfo"
+        ],
+        "nvd_description": "nginx 0.7.64 writes data to a log file without sanitizing non-printable characters, which might allow remote attackers to modify a window's title, or possibly execute arbitrary commands or overwrite files, via an HTTP request containing an escape sequence for a terminal emulator.",
+        "cvss": {
+          "version": "2.0",
+          "score": 6.8,
+          "severity": "MEDIUM",
+          "vector": "AV:N/AC:M/Au:N/C:P/I:P/A:P"
+        }
+      },
+      "cvss": {
+        "version": "2.0",
+        "score": 6.8,
+        "severity": "MEDIUM",
+        "vector": "AV:N/AC:M/Au:N/C:P/I:P/A:P"
+      },
+      "cwe": [
+        "NVD-CWE-noinfo"
+      ]
+    },
+    {
+      "id": "CVE-2009-3555",
+      "title": "The renegotiation vulnerability in SSL protocol",
+      "severity": "major",
+      "vulnerable_versions": "0.1.0-0.8.22",
+      "fixed_versions": "0.8.23+, 0.7.64+",
+      "patched": true,
+      "advisory_url": "http://www.kb.cert.org/vuls/id/120541",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2009-3555",
+      "patch_urls": [
+        "https://nginx.org/download/patch.cve-2009-3555.txt",
+        "https://nginx.org/download/patch.cve-2009-3555.txt.asc"
+      ],
+      "extra_refs": [
+        {
+          "label": "VU#120541",
+          "url": "http://www.kb.cert.org/vuls/id/120541"
+        }
+      ],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2009-3555",
+        "published": "2009-11-09T17:30:00.407",
+        "lastModified": "2026-06-16T23:11:50.227",
+        "cwe": [
+          "CWE-295",
+          "CWE-300"
+        ],
+        "nvd_description": "The TLS protocol, and the SSL protocol 3.0 and possibly earlier, as used in Microsoft Internet Information Services (IIS) 7.0, mod_ssl in the Apache HTTP Server 2.2.14 and earlier, OpenSSL before 0.9.8l, GnuTLS 2.8.5 and earlier, Mozilla Network Security Services (NSS) 3.12.4 and earlier, multiple Cisco products, and other products, does not properly associate renegotiation handshakes with an existing connection, which allows man-in-the-middle attackers to insert data into HTTPS sessions, and possibly other types of sessions protected by TLS or SSL, by sending an unauthenticated request that is processed retroactively by a server in a post-renegotiation context, related to a \"plaintext injection\" attack, aka the \"Project Mogul\" issue.",
+        "cvss": {
+          "version": "3.1",
+          "score": 9.8,
+          "severity": "CRITICAL",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+        }
+      },
+      "cvss": {
+        "version": "3.1",
+        "score": 9.8,
+        "severity": "CRITICAL",
+        "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+      },
+      "cwe": [
+        "CWE-295",
+        "CWE-300"
+      ]
+    },
+    {
+      "id": "CVE-2009-3898",
+      "title": "Directory traversal vulnerability",
+      "severity": "minor",
+      "vulnerable_versions": "0.1.0-0.8.16",
+      "fixed_versions": "0.8.17+, 0.7.63+",
+      "patched": true,
+      "advisory_url": "https://www.cve.org/CVERecord?id=CVE-2009-3898",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2009-3898",
+      "patch_urls": [],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2009-3898",
+        "published": "2009-11-24T17:30:00.437",
+        "lastModified": "2026-06-16T23:12:35.907",
+        "cwe": [
+          "CWE-22"
+        ],
+        "nvd_description": "Directory traversal vulnerability in src/http/modules/ngx_http_dav_module.c in nginx (aka Engine X) before 0.7.63, and 0.8.x before 0.8.17, allows remote authenticated users to create or overwrite arbitrary files via a .. (dot dot) in the Destination HTTP header for the WebDAV (1) COPY or (2) MOVE method.",
+        "cvss": {
+          "version": "2.0",
+          "score": 4.9,
+          "severity": "MEDIUM",
+          "vector": "AV:N/AC:M/Au:S/C:P/I:P/A:N"
+        }
+      },
+      "cvss": {
+        "version": "2.0",
+        "score": 4.9,
+        "severity": "MEDIUM",
+        "vector": "AV:N/AC:M/Au:S/C:P/I:P/A:N"
+      },
+      "cwe": [
+        "CWE-22"
+      ]
+    },
+    {
+      "id": "CVE-2009-2629",
+      "title": "Buffer underflow vulnerability",
+      "severity": "major",
+      "vulnerable_versions": "0.1.0-0.8.14",
+      "fixed_versions": "0.8.15+, 0.7.62+, 0.6.39+, 0.5.38+",
+      "patched": true,
+      "advisory_url": "http://www.kb.cert.org/vuls/id/180065",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2009-2629",
+      "patch_urls": [
+        "https://nginx.org/download/patch.180065.txt",
+        "https://nginx.org/download/patch.180065.txt.asc"
+      ],
+      "extra_refs": [
+        {
+          "label": "VU#180065",
+          "url": "http://www.kb.cert.org/vuls/id/180065"
+        }
+      ],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2009-2629",
+        "published": "2009-09-15T22:30:00.233",
+        "lastModified": "2026-06-16T23:09:52.607",
+        "cwe": [
+          "CWE-787"
+        ],
+        "nvd_description": "Buffer underflow in src/http/ngx_http_parse.c in nginx 0.1.0 through 0.5.37, 0.6.x before 0.6.39, 0.7.x before 0.7.62, and 0.8.x before 0.8.15 allows remote attackers to execute arbitrary code via crafted HTTP requests.",
+        "cvss": {
+          "version": "2.0",
+          "score": 7.5,
+          "severity": "HIGH",
+          "vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P"
+        }
+      },
+      "cvss": {
+        "version": "2.0",
+        "score": 7.5,
+        "severity": "HIGH",
+        "vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P"
+      },
+      "cwe": [
+        "CWE-787"
+      ]
+    },
+    {
+      "id": "CVE-2009-3896",
+      "title": "Null pointer dereference vulnerability",
+      "severity": "major",
+      "vulnerable_versions": "0.1.0-0.8.13",
+      "fixed_versions": "0.8.14+, 0.7.62+, 0.6.39+, 0.5.38+",
+      "patched": true,
+      "advisory_url": "https://www.cve.org/CVERecord?id=CVE-2009-3896",
+      "cve_url": "https://www.cve.org/CVERecord?id=CVE-2009-3896",
+      "patch_urls": [
+        "https://nginx.org/download/patch.null.pointer.txt",
+        "https://nginx.org/download/patch.null.pointer.txt.asc"
+      ],
+      "extra_refs": [],
+      "source": "https://nginx.org/en/security_advisories.html",
+      "nvd": {
+        "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2009-3896",
+        "published": "2009-11-24T17:30:00.377",
+        "lastModified": "2026-06-16T23:12:35.587",
+        "cwe": [
+          "CWE-119"
+        ],
+        "nvd_description": "src/http/ngx_http_parse.c in nginx (aka Engine X) 0.1.0 through 0.4.14, 0.5.x before 0.5.38, 0.6.x before 0.6.39, 0.7.x before 0.7.62, and 0.8.x before 0.8.14 allows remote attackers to cause a denial of service (NULL pointer dereference and worker process crash) via a long URI.",
+        "cvss": {
+          "version": "2.0",
+          "score": 5.0,
+          "severity": "MEDIUM",
+          "vector": "AV:N/AC:L/Au:N/C:N/I:N/A:P"
+        }
+      },
+      "cvss": {
+        "version": "2.0",
+        "score": 5.0,
+        "severity": "MEDIUM",
+        "vector": "AV:N/AC:L/Au:N/C:N/I:N/A:P"
+      },
+      "cwe": [
+        "CWE-119"
+      ]
+    }
+  ]
+}
